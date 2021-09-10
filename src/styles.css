@@ -3,7 +3,7 @@ body {
 }
 
 .truncate-3-lines {
-  max-height: 4.8em; /* double the size of line-height */
+  height: 4.8em; /* double the size of line-height */
   line-height: 1.8em;
   display: block;
   text-overflow: ellipsis;

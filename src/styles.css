@@ -10,3 +10,7 @@ body {
   word-wrap: break-word;
   overflow: hidden;
 }
+
+.product-tags{
+  min-height: 5em;
+}

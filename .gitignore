@@ -1,2 +1,7 @@
+
+# IDE setting
+.idea
+
+# yarn setting
 .yarn
 !.yarn/releases

@@ -8,19 +8,19 @@ interface AuxProps {
 const DefaultLayout = ({children}: AuxProps) => {
 
     return (
-        <div style={styles.container}>
+        <div className={'h-100 flex'}>
             <Header />
-            {children}
+            <div
+                style={{
+                    backgroundColor:'#f7f7f7',
+                    minHeight:'calc(100% - 70px)'
+                }}
+            >
+                <hr/>
+                {children}
+            </div>
         </div>
     )
 }
 
 export default DefaultLayout;
-
-const styles = {
-    container:{
-        width: '100%',
-        height: '100%',
-        minHeight:'100vh'
-    }
-}

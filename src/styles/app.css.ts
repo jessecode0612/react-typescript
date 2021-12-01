@@ -8,10 +8,15 @@ export default css`
   .flex-center,
   .flex-left-center,
   .flex-top-center,
+  .flex-end,
   .flex-between-center {
     display: flex;
   }
 
+  .flex-end{
+    justify-content: flex-end;
+  }
+  
   .flex-row {
     flex-direction: row;
   }
@@ -75,14 +80,14 @@ export default css`
   }
 
   body {
-    font: 400 16px/1.45 Roboto, Georgia, 'Times New Roman', Times, serif;
+    font: 400 14px/1.45 Roboto, Georgia, 'Times New Roman', Times, serif;
     color: ${theme.text};
     letter-spacing: 0.03em;
     margin: 0;
   }
 
   body,
-  #__next {
+  #root{
     height: 100%;
     min-height: 100vh;
   }
@@ -174,6 +179,14 @@ export default css`
 
   .text-bold {
     font-weight: 700;
+  }
+  
+  .text-red{
+    color: red;
+  }
+  
+  text-green{
+    color: green;
   }
 
   a {
@@ -1048,12 +1061,30 @@ export default css`
     width: 100%;
   }
   
+  .h-100 {
+    height: 100%;
+  }
+  
+  .bg-white{
+    background-color: white;
+  }
+  
   .card{
-    box-shadow: 0 0 4px 2px #00000012;
-    padding: 8px;
-    &:hover{
-      background-color: #23423610;
-      color: blue;
-    }
+    box-shadow: 0 0 10px 2px #00000012;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .badge{
+    font-size: 9px;
+    padding: 2px 4px;
+    margin: 1px;
+    border-radius: 100px;
+    background-color: gray;
+    color: white;
+  }
+  
+  .badge-green{
+    background-color: green;
   }
 `

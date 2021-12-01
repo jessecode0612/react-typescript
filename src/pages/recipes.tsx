@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from "react";
+import React, {Fragment, useEffect, useState} from "react"
 import {getProducts} from "../api";
-import Loader from "../components/Loader";
 import {Product, ProductItem} from "../components/ProductItem";
 import {Pagination} from "../components/Pagination";
 import DefaultLayout from "../layouts/DefaultLayout";
+import LoadingIcon from '../components/LoadingIcon'
 
 const LIMIT_PER_PAGE: number = 9;
 
@@ -34,27 +34,23 @@ export default function RecipesPage () {
 
     return (
         <DefaultLayout>
-            <div className="text-center p-2" style={{backgroundColor:'#f7f7f7'}}>
-                <hr/>
-                <div className="container m-auto">
-
-                    <h2 className="font-bold text-2xl text-gray-700 my-2">
-                        Product list
-                    </h2>
-
+            <div className="container">
+                <h3 className={'text-center'}> Product List </h3>
+                <div className={'flex-center flex-column'}>
                     {loading ? (
-                        <Loader/>
+                        <LoadingIcon/>
                     ) : (
-                        <div className="flex flex-col w-full">
-                            <div className="flex flex-wrap">
-                                {getPaginatedData().map((product:Product, index) => (
-                                    <div className="xl:w-1/3 md:w-1/2 p-4" key={index.toString()}>
+                        <Fragment>
+                            <div className="row">
+                                {getPaginatedData().map((product: Product, index) => (
+                                    <div className="col-lx-4 col-lg-6" key={index.toString()}>
                                         <ProductItem product={product}/>
                                     </div>
                                 ))}
                             </div>
-                            <Pagination onPaginate={handlePaginate} totalPage={Math.ceil(products.length / LIMIT_PER_PAGE)} />
-                        </div>
+                            <Pagination onPaginate={handlePaginate}
+                                        totalPage={Math.ceil(products.length / LIMIT_PER_PAGE)}/>
+                        </Fragment>
                     )}
                 </div>
             </div>

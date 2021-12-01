@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 export interface Product {
     title: string,
@@ -8,28 +8,27 @@ export interface Product {
     tags: Array<string>,
 }
 
-export const ProductItem = (props: { product: Product })  => {
-    const {product} = props;
+export const ProductItem = (props: { product: Product }) => {
+    const {product} = props
     return (
-        <div className="bg-white rounded-lg shadow">
-            <img className="lg:h-60 xl:h-56 md:h-64 sm:h-72 xs:h-72 h-72  rounded w-full object-cover object-center mb-6" src={product.images[0]}
-                 alt="Size 720x400" />
-                 <div className="px-6 py-3">
-                     <div className={"product-tags"}>
-                         {
-                             product.tags.map((tag)=>{
-                                 return(
-                                     <span key={tag} className="text-xs capitalize inline-block py-1 px-2 rounded-full text-white bg-pink-700 uppercase last:mr-0 mr-1">
+        <div className="card bg-white">
+            <img className="w-100" src={product.images[0]} alt="Size 720x400"/>
+            <div>
+                <div className={'flex-wrap'}>
+                    {
+                        product.tags.map((tag,index) => {
+                            return (
+                                <span className="badge badge-green" key={index.toString()} >
                                      {tag}
                                 </span>
-                                 )
-                             })
-                         }
-                     </div>
-                     <h1 className="text-lg text-gray-900 font-bold">{product.title}</h1>
-                     <span className={"text-3xl font-bold text-pink-700"}>${product.price}</span>
-                     <p className="leading-relaxed text-base overflow-ellipsis overflow-hidden truncate-3-lines ">{product.description}</p>
-                 </div>
+                            )
+                        })
+                    }
+                </div>
+                <h6>{product.title}</h6>
+                <h5 className={"text-red"}>${product.price}</h5>
+                <p className="leading-relaxed text-base overflow-ellipsis overflow-hidden truncate-3-lines ">{product.description}</p>
+            </div>
         </div>
-);
-};
+    )
+}

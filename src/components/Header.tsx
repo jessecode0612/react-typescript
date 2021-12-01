@@ -9,81 +9,23 @@ import Button from './Button'
 import { useScreen } from '../utils/hooks'
 
 import {
-  ArrowRightIcon,
-  DollarIcon,
   AddCircleOutlineIcon,
   MovingIcon,
   HamburgerIcon,
-  ProfileIcon,
-  VolumeIcon,
-  TimeIcon,
-  ReportOutlinedIcon,
-  MailOutlinedIcon
+  ArrowNextIcon
 } from './Icons'
 import Menu from './Menu'
 
 const menuList = [
   {
-    name: 'Account',
-    path: '/account',
-    icon: <ProfileIcon />,
-    children: [
-      {
-        name: 'Profile',
-        path: '/account/profile',
-        icon: <ProfileIcon />
-      },
-      {
-        name: 'History',
-        path: '/account/history',
-        icon: <TimeIcon />
-      },
-      {
-        name: 'Billing',
-        path: '/account/billing',
-        icon: <DollarIcon />
-      },
-      {
-        name: 'Contributions',
-        path: '/account/contributions',
-        icon: <MovingIcon />
-      },
-      {
-        name: 'Invite friends',
-        path: '/account/invite-friends',
-        icon: <MailOutlinedIcon />
-      },
-      {
-        name: 'Log out',
-        path: '/account/invite-friends',
-        icon: <ArrowRightIcon />
-      }
-    ]
-  },
-  {
-    name: 'Contribute',
-    path: '/contribute',
+    name: 'Modules',
+    path: '/modules',
     icon: <MovingIcon />,
     children: [
       {
-        name: 'Record voice',
-        path: '/contribute/record-voice',
-        icon: <VolumeIcon />
-      },
-      {
-        name: 'Record sound',
-        path: '/contribute/record-sound',
-        icon: <VolumeIcon />
-      },
-      {
-        name: 'Improve pronunciation',
-        path: '/contribute/improve-pronunciation',
-        icon: <MovingIcon />
-      },
-      {
-        name: 'Report',
-        path: '/contribute/report',
-        icon: <ReportOutlinedIcon />
+        name: 'Simple API',
+        path: '/module/simple-api',
+        icon: <ArrowNextIcon />
       }
     ]
   }
@@ -154,6 +96,7 @@ const styles = {
     width: 100%;
     margin: auto;
     position: relative;
+    height: 70px;
 
     ${theme.MOBILE_MEDIA_QUERY} {
       justify-content: center;

@@ -35,10 +35,6 @@ export default function RecipesPage () {
     return (
         <DefaultLayout>
             <div className="text-center p-2" style={{backgroundColor:'#f7f7f7'}}>
-                <h1 className="font-bold text-3xl text-gray-800 my-2">
-                    Fetch and list products{" "}
-                    <span role="img" aria-label="Shop"> 🛒 </span>
-                </h1>
                 <hr/>
                 <div className="container m-auto">
 

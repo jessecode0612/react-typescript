@@ -79,6 +79,6 @@ export const useOutSideClick = (
         document.addEventListener('click', handleClick)
 
         return () => document.removeEventListener('click', handleClick)
-    }, [])
+    }, [always, callback, element])
     return isOutSide
 }

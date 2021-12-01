@@ -1047,4 +1047,13 @@ export default css`
   .w-100 {
     width: 100%;
   }
+  
+  .card{
+    box-shadow: 0 0 4px 2px #00000012;
+    padding: 8px;
+    &:hover{
+      background-color: #23423610;
+      color: blue;
+    }
+  }
 `

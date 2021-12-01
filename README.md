@@ -6,8 +6,6 @@ Created with CodeSandbox
 2. Configuration
 3. Simple API Calling and Displaying
 4. Simple Chat app using websocket
-5. 
-6. Trouble shootings
 ## 1. Get Started with React Typescript
 - make sure node is installed
 - make sure yarn is installed
@@ -19,33 +17,26 @@ npx create-react-app [APP_NAME] --template typescript
 yarn create react-app [] --template typescript
 ```
 ## 2. Configuration
-### Env
-- REACT_APP_API_URL = https://ecomm-products.modus.workers.dev/
-### Yarn
-#### Set up PNP with the latest version rc [Lean more...](https://yarnpkg.com/cli/set/version)
+### Environment
+- Node 16.13.0
+- npm 8.1.4
+- yarn 1.22.4
+### package Installations
+- use @emotion/react for styling
 ```
-yarn set version berry
-yarn set version latest
-yarn set version canary
+yarn add @emotion/react
 ```
-#### Import yarn plugins See [Learn more...](https://yarnpkg.com/api/)
-```
-yarn plugin import typescript
-yarn plugin import interactive-tools
-```
-### TS configuration [See tsconfig.json]
-- set alias (baseUrl & paths)
-### NPM package Installations
-- use sass [Learn more](https://www.npmjs.com/package/node-sass)
-```
-yarn add node-sass
-yarn add @types/node-sass
-```
+
+What I usually do for putting alert box (e.g. Note or Warning) in markdown texts (not only when using pandoc but also every where that markdown is supported) is surrounding the content with two horizontal lines:
+
+---
+**_NOTE_**
+Please import jsx from '@emotion/react' instead of React from 'react' at the top of every file where you are going to use css prop.
+[Lean more...](https://emotion.sh/docs/css-prop#jsx-pragma)
+---
 - user router [Learn more...](https://www.npmjs.com/package/react-router-dom)
 ``` 
-yarn add react-router-dom
-yarn add react-router-dom@next
-yarn add @types/react-router-dom -D
+yarn add react-router-dom @types/react-router-dom
 ```
 - user HTTP client [Lean more...](https://www.npmjs.com/package/axios)
 ```

@@ -6,3 +6,6 @@
 .yarn
 !.yarn/releases
 !.yarn/plugins
+
+# node modules
+node_modules

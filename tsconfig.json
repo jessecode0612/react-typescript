@@ -2,11 +2,8 @@
   "compilerOptions": {
     "outDir": "build/dist",
     "module": "esnext",
-    "target": "es5",
-    "lib": [
-      "es6",
-      "dom"
-    ],
+    "target": "es6",
+    "lib": ["dom", "es2017","DOM.Iterable", "ScriptHost", "ES2016.Array.Include","es6"],
     "sourceMap": true,
     "allowJs": true,
     "jsx": "react",
@@ -25,9 +22,17 @@
     "strict": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true
+    "noEmit": true,
+    "types": [
+      "react",
+      "react-dom"
+    ]
   },
+  "exclude": [
+    "node_modules"
+  ],
   "include": [
-    "src"
+    "src",
+    "config-overrides.js"
   ]
 }

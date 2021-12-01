@@ -1,15 +1,16 @@
 /* eslint-disable-next-line no-use-before-define */
-import React from "react";
-import ReactDOM from "react-dom";
+import React from "react"
+import ReactDOM from "react-dom"
 
-// https://ecomm-products.modus.workers.dev/
+import App from "./App"
+import {Global} from '@emotion/react'
+import appStyles from './styles/app.css'
 
-import App from "./App";
-
-const rootElement = document.getElementById("root");
+const rootElement = document.getElementById("root")
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  rootElement
-);
+    <React.StrictMode>
+        <Global styles={appStyles}/>
+        <App/>
+    </React.StrictMode>,
+    rootElement
+)

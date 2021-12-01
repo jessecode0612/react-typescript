@@ -8,13 +8,12 @@ export interface Product {
     tags: Array<string>,
 }
 
-export const ProductItem: React.FC<{ product: Product }> = (props: { product: Product }): JSX.Element => {
+export const ProductItem = (props: { product: Product })  => {
     const {product} = props;
-    console.log(product)
     return (
         <div className="bg-white rounded-lg shadow">
             <img className="lg:h-60 xl:h-56 md:h-64 sm:h-72 xs:h-72 h-72  rounded w-full object-cover object-center mb-6" src={product.images[0]}
-                 alt="Image Size 720x400" />
+                 alt="Size 720x400" />
                  <div className="px-6 py-3">
                      <div className={"product-tags"}>
                          {

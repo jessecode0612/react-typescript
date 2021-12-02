@@ -30,8 +30,7 @@ yarn add @emotion/react
 What I usually do for putting alert box (e.g. Note or Warning) in markdown texts (not only when using pandoc but also every where that markdown is supported) is surrounding the content with two horizontal lines:
 
 ---
-**_NOTE_**
-Please import jsx from '@emotion/react' instead of React from 'react' at the top of every file where you are going to use css prop.
+_Note:_ Please import jsx from '@emotion/react' instead of React from 'react' at the top of every file where you are going to use css prop.
 [Lean more...](https://emotion.sh/docs/css-prop#jsx-pragma)
 ---
 - user router [Learn more...](https://www.npmjs.com/package/react-router-dom)
@@ -42,4 +41,11 @@ yarn add react-router-dom @types/react-router-dom
 ```
 yarn add axios
 ```
-
+- use nodemon with typescript
+```
+yarn add nodemon ts-node
+```
+- use qraphQL
+``` 
+yarn add apollo-server graphql
+```

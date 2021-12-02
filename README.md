@@ -26,26 +26,21 @@ yarn create react-app [] --template typescript
 ```
 yarn add @emotion/react
 ```
-
-What I usually do for putting alert box (e.g. Note or Warning) in markdown texts (not only when using pandoc but also every where that markdown is supported) is surrounding the content with two horizontal lines:
-
----
 _Note:_ Please import jsx from '@emotion/react' instead of React from 'react' at the top of every file where you are going to use css prop.
 [Lean more...](https://emotion.sh/docs/css-prop#jsx-pragma)
----
-- user router [Learn more...](https://www.npmjs.com/package/react-router-dom)
+- Use router [Learn more...](https://www.npmjs.com/package/react-router-dom)
 ``` 
 yarn add react-router-dom @types/react-router-dom
 ```
-- user HTTP client [Lean more...](https://www.npmjs.com/package/axios)
+- Use HTTP client [Lean more...](https://www.npmjs.com/package/axios)
 ```
 yarn add axios
 ```
-- use nodemon with typescript
+- Use nodemon with typescript
 ```
 yarn add nodemon ts-node
 ```
-- use SQLite & GraphQL
+- Use SQLite & GraphQL Apollo Client
 ``` 
 yarn add apollo-server graphql 
 yarn add apollo-datasource apollo-datasource-rest 

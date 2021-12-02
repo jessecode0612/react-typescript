@@ -19,9 +19,7 @@ const typeDefs = gql`
 
     type User {
         id: ID!
-        email: String!
-        trips: [Launch]!
-        token: String
+        email: String
     }
 
     type Mission {
@@ -48,17 +46,17 @@ const typeDefs = gql`
         projects: [Project]!
         users: [User]!
     }
-
-    type Mutation {
-        bookTrips(launchIds: [ID]!): TripUpdateResponse!
-        cancelTrip(launchId: ID!): TripUpdateResponse!
-        login(email: String): User
-    }
-
+    
     type TripUpdateResponse {
         success: Boolean!
         message: String
         launches: [Launch]
+    }
+    
+    type Mutation {
+        bookTrips(launchIds: [ID]!): TripUpdateResponse!
+        cancelTrip(launchId: ID!): TripUpdateResponse!
+        login(email: String!): User
     }
 `
 

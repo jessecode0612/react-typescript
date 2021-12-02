@@ -11,7 +11,15 @@ export const resolvers = {
         launches: (_: any, __: any, {dataSources}: { dataSources: dataSources }) =>
             dataSources.launchAPI.getAllLaunches(),
         launch: (_: any, {id}: { id: string }, {dataSources}: { dataSources: dataSources }) =>
-            dataSources.launchAPI.getLaunchById({launchId: id}),
-        me: (_: any, __: any, {dataSources}: { dataSources: dataSources }) => dataSources.userAPI.findOrCreateUser()
+            dataSources.launchAPI.getLaunchById({launchId: id})
+    },
+    Mutation: {
+        login: async (_:any, { email }:{email: string}, { dataSources }:{dataSources: dataSources}) => {
+            const user = await dataSources.userAPI.findOrCreateUser({ email });
+            if (user) {
+                user.token = Buffer.from(email).toString('base64');
+                return user;
+            }
+        },
     }
 }

@@ -1,5 +1,5 @@
 {
-  "watch": ["server", ".env.local", "apollo", "next.config.js"],
+  "watch": ["server", ".env"],
   "exec": "node -r ts-node/register server",
   "ext": "js ts"
 }

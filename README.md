@@ -45,7 +45,10 @@ yarn add axios
 ```
 yarn add nodemon ts-node
 ```
-- use qraphQL
+- use SQLite & GraphQL
 ``` 
-yarn add apollo-server graphql
+yarn add apollo-server graphql 
+yarn add apollo-datasource apollo-datasource-rest 
+yarn add sequelize
+yarn add prisma @prisma/client
 ```

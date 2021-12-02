@@ -34,10 +34,19 @@ const typeDefs = gql`
         LARGE
     }
 
+    type Project {
+        id: Int
+        title: String
+        status: String
+        members: [User]
+    }
+    
     type Query {
         launches: [Launch]!
         launch(id: ID!): Launch
         me: User
+        projects: [Project]!
+        users: [User]!
     }
 
     type Mutation {
@@ -51,6 +60,6 @@ const typeDefs = gql`
         message: String
         launches: [Launch]
     }
-`;
+`
 
-export default typeDefs;
+export default typeDefs

@@ -254,3 +254,33 @@ install [spokestack](https://www.npmjs.com/package/spokestack) and [wav encoder]
 yarn add spokestack web-encoder
 yarn add @types/web-encoder -D
 ```
+## 6. Integration Firebase using react-redux-firebase
+install firebase
+```yarn
+yarn add firebase
+```
+put firebase configurations into .env file.
+```dotenv
+REACT_APP_FIREBASE_API_KEY=
+REACT_APP_FIREBASE_AUTH_DOMAIN=
+REACT_APP_FIREBASE_DATABASE_URL=
+REACT_APP_FIREBASE_PROJECT_ID=
+REACT_APP_FIREBASE_STORAGE_BUCKET=
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=
+REACT_APP_FIREBASE_APP_ID=
+REACT_APP_FIREBASE_MEASUREMENT_ID=
+```
+
+## 7. use Google apis
+- geocode api
+set google api key in env
+```dotenv
+REACT_APP_GOOGLE_API_KEY=
+```
+install react geocode to use geocode api.
+```yarn
+yarn add react-geocode
+yarn add @types/react-geocode
+```
+## 8. Deploy to GCP
+See app.yaml file

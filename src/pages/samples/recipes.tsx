@@ -1,9 +1,9 @@
 import React, {Fragment, useEffect, useState} from "react"
-import {getProducts} from "../api";
-import {Product, ProductItem} from "../components/ProductItem";
-import {Pagination} from "../components/Pagination";
-import DefaultLayout from "../layouts/DefaultLayout";
-import LoadingIcon from '../components/LoadingIcon'
+import {getProducts} from "../../api";
+import {Product, ProductItem} from "../../components/ProductItem";
+import {Pagination} from "../../components/Pagination";
+import DefaultLayout from "../../layouts/DefaultLayout";
+import LoadingIcon from '../../components/LoadingIcon'
 
 const LIMIT_PER_PAGE: number = 9;
 

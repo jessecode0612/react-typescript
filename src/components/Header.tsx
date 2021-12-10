@@ -24,7 +24,12 @@ const menuList = [
     children: [
       {
         name: 'Simple API',
-        path: '/module/simple-api',
+        path: '/samples/simple-api',
+        icon: <ArrowNextIcon />
+      },
+      {
+        name: 'Resizable',
+        path: '/samples/resizable',
         icon: <ArrowNextIcon />
       }
     ]

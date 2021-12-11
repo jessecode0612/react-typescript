@@ -1,15 +1,4 @@
 {
-  "ts-node": {
-    "compilerOptions": {
-      "module": "CommonJS"
-    },
-    "exclude": [
-      "src"
-    ],
-    "include": [
-      "server"
-    ]
-  },
   "compilerOptions": {
     "outDir": "build/dist",
     "module": "esnext",
@@ -26,7 +15,7 @@
     "allowJs": true,
     "jsx": "react",
     "moduleResolution": "node",
-    "rootDir": "src",
+    "rootDir": ".",
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
@@ -53,5 +42,16 @@
   ],
   "include": [
     "src"
-  ]
+  ],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    },
+    "exclude": [
+      "src"
+    ],
+    "include": [
+      "server"
+    ]
+  }
 }

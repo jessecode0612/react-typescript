@@ -8,6 +8,7 @@ import {PersistGate} from 'redux-persist/es/integration/react'
 
 import RecipesPage from './pages/samples/recipes'
 import ResizablePage from './pages/samples/resizable'
+import DocsPage from './pages/docs'
 
 export default function App() {
 
@@ -19,6 +20,7 @@ export default function App() {
                         <Route path={'/'} element={<HomePage/>}/>
                         <Route path={'/samples/simple-api'} element={<RecipesPage/>}/>
                         <Route path={'/samples/resizable'} element={<ResizablePage/>}/>
+                        <Route path={'/docs'} element={<DocsPage/>}/>
                         <Route path={'*'} element={<ErrorPage/>}/>
                     </Routes>
                 </Router>

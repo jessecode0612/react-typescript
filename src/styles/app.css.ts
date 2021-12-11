@@ -69,6 +69,7 @@ export default css`
     background-color: ${theme.mainBackground};
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+    background-color: #f9f9f9;
   }
 
   * {
@@ -84,7 +85,6 @@ export default css`
     color: ${theme.text};
     letter-spacing: 0.03em;
     margin: 0;
-    background-color: #f9f9f9;
   }
   
   header{

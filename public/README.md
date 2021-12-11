@@ -1,15 +1,15 @@
-## React - Apollo Typescript APP Example
+# React - Apollo Typescript APP Example
 
 Created with CodeSandbox
 
-### Environment
+## Environment
 
 - Node 16.13.0
 - npm 8.1.4
 - yarn 1.22.4
 - PostgreSQL 14
 
-### Running the project
+## Running the project
 
 1. Download the project
 2. Running FrontEnd
@@ -23,7 +23,7 @@ Created with CodeSandbox
 - run `yarn prisma generate dev` to migrate database
 - run `yarn dev` to launch the apollo server
 
-### Project structure
+## Project structure
 
 ```
 |-- public
@@ -73,7 +73,7 @@ Created with CodeSandbox
 |- yarn.lock
 ```
 
-### 1. Get Started with React Typescript
+## 1. Get Started with React Typescript
 
 #### create react app with typescript [Learn more...](https://create-react-app.dev/docs/adding-typescript/)
 
@@ -83,7 +83,7 @@ npx create-react-app [APP_NAME] --template typescript
 yarn create react-app [] --template typescript
 ```
 
-### 2. Basic Configurations
+## 2. Basic Configurations
 
 - use @emotion/react for styling
 
@@ -102,7 +102,7 @@ going to use css prop.
 yarn add axios
 ```
 
-### 3. Routing
+## 3. Routing
 
 - please install [react-router-dom](https://www.npmjs.com/package/react-router-dom) using npm or yarn
 
@@ -115,25 +115,25 @@ yarn add -D @types/react-router-dom
 
 ```typescript jsx
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
-import HomePage from "./pages/home"
+import HomePage from "./home"
 import RecipesPage from './pages/recipes'
-import ErrorPage from './pages/404'
+import ErrorPage from './404'
 // ...
 export default function App() {
-    // ...
-    return (
-        <Router>
+  // ...
+  return (
+          <Router>
             <Routes>
-                <Route path={'/'} element={<HomePage/>}/>
-                ...
-                <Route path={'*'} element={<ErrorPage/>}/>
+              <Route path={'/'} element={<HomePage/>}/>
+              ...
+              <Route path={'*'} element={<ErrorPage/>}/>
             </Routes>
-        </Router>
-    )
+          </Router>
+  )
 }
 ```
 
-### 3. Setup React Redux & Redux Persist
+## 3. Setup React Redux & Redux Persist
 
 1. install npm packages
 
@@ -215,7 +215,7 @@ export default function App() {
 }
 ```
 
-### 4. Setup Apollo Server
+## 4. Setup Apollo Server
 
 - Use nodemon with typescript
 
@@ -247,7 +247,7 @@ config "prisma" on package.json
   }
 }
 ```
-### 5. Integration Spokestack API and Audio recording, Audio Visualization
+## 5. Integration Spokestack API and Audio recording, Audio Visualization
 
 install [spokestack](https://www.npmjs.com/package/spokestack) and [wav encoder](https://www.npmjs.com/package/wav-encoder/v/0.3.0) using yarn
 ```yarn
@@ -271,7 +271,7 @@ REACT_APP_FIREBASE_APP_ID=
 REACT_APP_FIREBASE_MEASUREMENT_ID=
 ```
 
-### 7. use Google apis
+## 7. use Google apis
 - geocode api
 set google api key in env
 ```dotenv

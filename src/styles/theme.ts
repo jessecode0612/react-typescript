@@ -1,5 +1,5 @@
-export const primaryColor = '#27288A'
-export const primaryDarkColor = '#27288A'
+export const primaryColor = '#0103f3'
+export const primaryDarkColor = '#02037a'
 export const primaryLightColor = '#d4d4e8'
 export const primaryLighterColor = '#dddded'
 export const secondaryColor = '#f7f6f3'
@@ -117,9 +117,24 @@ export const MIN_MOBILE_MEDIA_QUERY = `@media (min-width:${MOBILE_WIDTH}px)` // 
 export const MAIN_MEDIA_QUERY = DEFAULT_MEDIA_QUERY
 export const MIN_MAIN_MEDIA_QUERY = MIN_DEFAULT_MEDIA_QUERY
 
-export const shadow = '0 0 15px 5px rgba(0,0,0,.25)'
+export const shadow = '0 0 10px 5px rgba(0,0,0,.12)'
+export const shadowPrimary = `1px 1px 3px ${primary}, -1px -1px 3px ${primary}`
+
 export const borderDefault = 'solid 1px #D3D5D3'
+export const borderRadiusSm = '8px'
 export const borderRadiusDefault = '8px'
 
 export const footerLight = '#0070f3'
 export const footerDark = '#fba60f'
+
+export default {
+    primary,
+    borderDefault,
+    borderRadiusDefault,
+    borderRadiusSm,
+    shadow,
+    shadowPrimary,
+    MOBILE_MEDIA_QUERY,
+    MIN_MOBILE_MEDIA_QUERY,
+    transitionEasing
+}

@@ -805,6 +805,21 @@ export function TimeIcon({ extraCss }: Props) {
   )
 }
 
+export function TimesIcon({ extraCss }: Props) {
+    return (
+        <SVGIcon
+            icon="#close"
+            className="icon"
+            extraCss={[
+                css`
+          width: 18px;
+          height: 18px;
+        `
+            ].concat(extraCss!)}
+        />
+    )
+}
+
 export function ThumbsUpIcon({ extraCss }: Props) {
   return (
     <SVGIcon

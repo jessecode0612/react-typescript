@@ -1,140 +1,142 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/react'
+import {jsx} from '@emotion/react'
 import {Fragment, useEffect, useRef} from 'react'
 import * as theme from '../styles/theme'
 
-import { css } from '@emotion/react'
-import { useOutSideClick, useScreen } from '../utils/hooks'
-import { ArrowBackIcon, ArrowNextIcon } from './Icons'
+import {css} from '@emotion/react'
+import {useOutSideClick, useScreen} from '../utils/hooks'
+import {ArrowBackIcon, ArrowNextIcon} from './Icons'
 import {Link, useLocation} from 'react-router-dom'
+import {useScroll} from '../utils/hooks/useScroll'
 
 interface MenuItemType {
-  name: string
-  path: string
-  icon: JSX.Element
-  children?: Array<MenuItemType>
+    name: string
+    path: string
+    icon: JSX.Element
+    children?: Array<MenuItemType>
 }
 
 interface MenuItemProps extends MenuItemType {
-  activeMenu?: string
-  menuClick: (name: string | undefined) => void
+    activeMenu?: string
+    menuClick: (name: string | undefined) => void
 }
 
 const MenuItem = ({
-  name,
-  path,
-  icon,
-  children = [],
-  activeMenu,
-  menuClick
-}: MenuItemProps) => {
-  const menuChildrenRef = useRef<HTMLUListElement>(null)
-  const { isMobile, isDesktop } = useScreen()
+                      name,
+                      path,
+                      icon,
+                      children = [],
+                      activeMenu,
+                      menuClick
+                  }: MenuItemProps) => {
+    const menuChildrenRef = useRef<HTMLUListElement>(null)
+    const {isMobile, isDesktop} = useScreen()
+    const {top} = useScroll()
 
-  const router = useLocation();
+    const router = useLocation()
 
-  // determines if main menu item on header is active or not for desktop only
-  const active = router.pathname.includes(path)
+    // determines if main menu item on header is active or not for desktop only
+    const active = router.pathname.includes(path)
 
-  const setActiveMenu = () => {
-    menuClick(name)
-  }
-
-  const removeActiveMenu = () => {
-    menuClick(undefined)
-  }
-
-  useOutSideClick(
-    menuChildrenRef,
-    () => {
-      if (isDesktop) {
-        removeActiveMenu()
-      }
-    },
-    true
-  )
-
-  // Dropdown position adjustment
-  useEffect(() => {
-    const windowWidth = document.body.clientWidth
-    if (menuChildrenRef.current) {
-      const right = menuChildrenRef.current.getBoundingClientRect().right
-      if (windowWidth < right) {
-        menuChildrenRef.current.style.left = windowWidth - right - 10 + 'px'
-      }
+    const setActiveMenu = () => {
+        menuClick(name)
     }
-  }, [menuChildrenRef])
 
-  return (
-    <div css={styles} className={active ? 'active' : ''}>
-      <div
-        className={'menu-title-wrap'}
-        hidden={isMobile && activeMenu !== undefined}
-        onClick={setActiveMenu}
-        onMouseOver={setActiveMenu}
-      >
-        {isMobile && icon}
-        <span className={'menu-title'}>{name}</span>
-        {isMobile && (
-          <div className={'next-icon-wrap'}>
-            <ArrowNextIcon />
-          </div>
-        )}
-      </div>
-      <ul
-        onMouseLeave={removeActiveMenu}
-        data-open={activeMenu === name}
-        ref={menuChildrenRef}
-      >
-        <div
-          className={'menu-title-wrap'}
-          hidden={isDesktop}
-          onClick={removeActiveMenu}
-        >
-          <div className={'icon-back-wrap'}>
-            <ArrowBackIcon />
-          </div>
-          {icon}
-          <span className={'menu-title'}>{name}</span>
-        </div>
+    const removeActiveMenu = () => {
+        menuClick(undefined)
+    }
 
-        {children.map((menuItem, index) => (
-          <Link to={menuItem.path}  key={index.toString()}>
-            <li>
-              {menuItem.icon}
-              <span className={'menu-item-title'}>{menuItem.name}</span>
-              {isMobile && (
-                <div className={'next-icon-wrap'}>
-                  <ArrowNextIcon />
+    useOutSideClick(
+        menuChildrenRef,
+        () => {
+            if (isDesktop) {
+                removeActiveMenu()
+            }
+        },
+        true
+    )
+
+    // Dropdown position adjustment
+    useEffect(() => {
+        const windowWidth = document.body.clientWidth
+        if (menuChildrenRef.current) {
+            const right = menuChildrenRef.current.getBoundingClientRect().right
+            if (windowWidth < right) {
+                menuChildrenRef.current.style.left = windowWidth - right - 10 + 'px'
+            }
+        }
+    }, [menuChildrenRef])
+
+    return (
+        <div css={styles} className={active ? 'active' : ''}>
+            <div
+                className={'menu-title-wrap'}
+                hidden={isMobile && activeMenu !== undefined}
+                onClick={setActiveMenu}
+                onMouseOver={setActiveMenu}
+            >
+                {isMobile && icon}
+                <span className={'menu-title'} style={{color: top > 50 ? 'black' : 'white'}}>{name}</span>
+                {isMobile && (
+                    <div className={'next-icon-wrap'}>
+                        <ArrowNextIcon/>
+                    </div>
+                )}
+            </div>
+            <ul
+                onMouseLeave={removeActiveMenu}
+                data-open={activeMenu === name}
+                ref={menuChildrenRef}
+            >
+                <div
+                    className={'menu-title-wrap'}
+                    hidden={isDesktop}
+                    onClick={removeActiveMenu}
+                >
+                    <div className={'icon-back-wrap'}>
+                        <ArrowBackIcon/>
+                    </div>
+                    {icon}
+                    <span className={'menu-title'}>{name}</span>
                 </div>
-              )}
-            </li>
-          </Link>
-        ))}
-      </ul>
-    </div>
-  )
+
+                {children.map((menuItem, index) => (
+                    <Link to={menuItem.path} key={index.toString()}>
+                        <li>
+                            {menuItem.icon}
+                            <span className={'menu-item-title'}>{menuItem.name}</span>
+                            {isMobile && (
+                                <div className={'next-icon-wrap'}>
+                                    <ArrowNextIcon/>
+                                </div>
+                            )}
+                        </li>
+                    </Link>
+                ))}
+            </ul>
+        </div>
+    )
 }
 
 interface MenuProps {
-  menu: Array<MenuItemType>
-  activeMenu?: string
-  menuClick: (name: string | undefined) => void
+    menu: Array<MenuItemType>
+    activeMenu?: string
+    menuClick: (name: string | undefined) => void
 }
 
-export const Menu = ({ menu = [], activeMenu, menuClick }: MenuProps) => {
-  return (
-    <Fragment>
-      {menu.map((item, index) => (
-        <MenuItem
-          {...item}
-          key={index.toString()}
-          activeMenu={activeMenu}
-          menuClick={menuClick}
-        />
-      ))}
-    </Fragment>
-  )
+export const Menu = ({menu = [], activeMenu, menuClick}: MenuProps) => {
+    return (
+        <Fragment>
+            {menu.map((item, index) => (
+                <MenuItem
+                    {...item}
+                    key={index.toString()}
+                    activeMenu={activeMenu}
+                    menuClick={menuClick}
+                />
+            ))}
+        </Fragment>
+    )
 }
 export default Menu
 
@@ -165,12 +167,12 @@ const styles = css`
     }
 
     .menu-title {
-      color: black;
+      color: white;
       font-weight: 400;
       align-items: center;
 
       &:hover {
-        color: rgba(0, 0, 0, 0.4);
+        color: rgba(204, 202, 202, 0.4);
       }
 
       ${theme.MOBILE_MEDIA_QUERY} {

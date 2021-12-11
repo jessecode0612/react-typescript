@@ -1,22 +1,19 @@
 /** @jsx jsx */
 import {css, jsx} from '@emotion/react'
 import DefaultLayout from "../layouts/DefaultLayout"
-import ContactForm from '../components/Sections/ContactForm'
-import Hero from '../components/Sections/Hero'
 
-export const HomePage = () => {
+export const Page = () => {
 
     return (
         <DefaultLayout>
             <div css={styles}>
-                <Hero />
-                <ContactForm />
+
             </div>
         </DefaultLayout>
     )
 }
 
-export default HomePage
+export default Page
 
 const styles = css`
   .hero {

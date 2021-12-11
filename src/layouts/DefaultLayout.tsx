@@ -1,5 +1,5 @@
 import React, {ReactChild, ReactChildren} from "react";
-import Header from '../components/Header'
+import Header from '../components/Sections/Header'
 
 interface AuxProps {
     children: ReactChild | ReactChildren | ReactChild[] | ReactChildren[];
@@ -16,7 +16,6 @@ const DefaultLayout = ({children}: AuxProps) => {
                     minHeight:'calc(100% - 70px)'
                 }}
             >
-                <hr/>
                 {children}
             </div>
         </div>

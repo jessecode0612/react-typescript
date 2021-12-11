@@ -84,6 +84,13 @@ export default css`
     color: ${theme.text};
     letter-spacing: 0.03em;
     margin: 0;
+    background-color: #f9f9f9;
+  }
+  
+  header{
+    position: fixed;
+    width: 100%;
+    z-index: 2;
   }
 
   body,
@@ -127,7 +134,7 @@ export default css`
   h5,
   h6 {
     margin-top: 0;
-    color: ${theme.header};
+    color: inherit;
     font-family: Roboto, Georgia, 'Times New Roman', Times, serif;
     font-weight: 700;
   }
@@ -550,7 +557,6 @@ export default css`
 
   .input-wrap {
     width: 100%;
-    display: flex;
     flex-direction: column;
     display: grid;
     grid-template-columns: 100%;
@@ -571,9 +577,9 @@ export default css`
   .input {
     width: 100%;
     border: 1px solid ${theme.mainBorder};
-    border-radius: 7px;
+    border-radius: 4px;
     background-color: white;
-    padding-left: 20px;
+    padding-left: 10px;
     padding-right: 20px;
   }
 
@@ -857,7 +863,8 @@ export default css`
   .container {
     padding: 12px;
     margin: auto;
-    width: 100%;
+    width: 96%;
+    
     ${theme.MIN_DEFAULT_MEDIA_QUERY} {
       max-width: ${theme.DEFAULT_WIDTH - 88}px;
     }

@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import {css, jsx} from '@emotion/react'
 
-export default function Section() {
+export default function Services() {
 
 
     return (

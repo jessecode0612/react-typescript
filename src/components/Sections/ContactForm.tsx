@@ -1,13 +1,9 @@
 /** @jsx jsx */
 import {css, jsx} from '@emotion/react'
-import {HTMLAttributes, useState} from 'react'
+import { useState} from 'react'
 import Input from '../Input'
 import {InputOnChangeProps} from '../../types'
 import theme from '../../styles/theme'
-
-interface Props extends HTMLAttributes<HTMLDivElement> {
-    fullWidth?: boolean
-}
 
 const initialState = {
     firstName: '',
@@ -18,11 +14,7 @@ const initialState = {
     message: ''
 }
 
-export default function ContactForm
-({
-     fullWidth = false,
-     ...rest
- }: Props) {
+export default function ContactForm() {
 
     const [state, setState] = useState(initialState)
 
@@ -30,14 +22,8 @@ export default function ContactForm
         setState({...state, [name!]: value})
     }
 
-    let className = ''
-
-    if (!fullWidth) {
-        className += "container"
-    }
-
     return (
-        <div css={styles} className={className} {...rest}>
+        <div css={styles} className="container">
             <div className="row">
                 <div className="col-df-4">
                     <div className="contact-detail">

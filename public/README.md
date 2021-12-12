@@ -1,4 +1,4 @@
-# React - Apollo Typescript APP Example
+# React - Apollo Typescript APP
 
 Created with CodeSandbox
 

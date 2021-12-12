@@ -1,12 +1,12 @@
 import * as theme from '../styles/theme'
 
-import React, { HTMLAttributes, useEffect, useRef } from 'react'
+import React, {HTMLAttributes, useEffect, useRef} from 'react'
 
 interface Props extends HTMLAttributes<HTMLElement> {
     title: string
 }
 
-export default function Tooltip({ title, children, ...rest }: Props) {
+export default function Tooltip({title, children, ...rest}: Props) {
     const tooltipRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {

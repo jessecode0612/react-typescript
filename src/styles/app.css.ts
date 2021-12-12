@@ -13,10 +13,10 @@ export default css`
     display: flex;
   }
 
-  .flex-end{
+  .flex-end {
     justify-content: flex-end;
   }
-  
+
   .flex-row {
     flex-direction: row;
   }
@@ -86,15 +86,15 @@ export default css`
     letter-spacing: 0.03em;
     margin: 0;
   }
-  
-  header{
+
+  header {
     position: fixed;
     width: 100%;
     z-index: 2;
   }
 
   body,
-  #root{
+  #root {
     height: 100%;
     min-height: 100vh;
   }
@@ -187,12 +187,12 @@ export default css`
   .text-bold {
     font-weight: 700;
   }
-  
-  .text-red{
+
+  .text-red {
     color: red;
   }
-  
-  text-green{
+
+  text-green {
     color: green;
   }
 
@@ -593,8 +593,9 @@ export default css`
     padding-bottom: 10px;
   }
 
-  .warning{
+  .warning {
     color: ${theme.yellow};
+
     &.input {
       border-color: ${theme.yellow};
     }
@@ -864,13 +865,15 @@ export default css`
     padding: 12px;
     margin: auto;
     width: 96%;
-    
+
     ${theme.MIN_DEFAULT_MEDIA_QUERY} {
       max-width: ${theme.DEFAULT_WIDTH - 88}px;
     }
+
     ${theme.MIN_LARGE_DISPLAY_MEDIA_QUERY} {
       max-width: ${theme.DEFAULT_WIDTH}px;
     }
+
     ${theme.MIN_LARGER_DISPLAY_MEDIA_QUERY} {
       max-width: ${theme.LARGE_DISPLAY_WIDTH}px;
     }
@@ -960,18 +963,23 @@ export default css`
   .col-3 {
     width: 25%;
   }
+
   .col-4 {
     width: 33.33333%;
   }
+
   .col-5 {
     width: 41.66666%;
   }
+
   .col-6 {
     width: 50%;
   }
+
   .col-7 {
     width: 58.33333%;
   }
+
   .col-8 {
     width: 66.66666%;
   }
@@ -980,18 +988,23 @@ export default css`
     .col-tb-3 {
       width: 25%;
     }
+
     .col-tb-4 {
       width: 33.33333%;
     }
+
     .col-tb-5 {
       width: 41.66666%;
     }
+
     .col-tb-6 {
       width: 50%;
     }
+
     .col-tb-7 {
       width: 58.33333%;
     }
+
     .col-tb-8 {
       width: 66.66666%;
     }
@@ -1001,18 +1014,23 @@ export default css`
     .col-df-3 {
       width: 25%;
     }
+
     .col-df-4 {
       width: 33.33333%;
     }
+
     .col-df-5 {
       width: 41.66666%;
     }
+
     .col-df-6 {
       width: 50%;
     }
+
     .col-df-7 {
       width: 58.33333%;
     }
+
     .col-df-8 {
       width: 66.66666%;
     }
@@ -1022,18 +1040,23 @@ export default css`
     .col-lg-3 {
       width: 25%;
     }
+
     .col-lg-4 {
       width: 33.33333%;
     }
+
     .col-lg-5 {
       width: 41.66666%;
     }
+
     .col-lg-6 {
       width: 50%;
     }
+
     .col-lg-7 {
       width: 58.33333%;
     }
+
     .col-lg-8 {
       width: 66.66666%;
     }
@@ -1043,18 +1066,23 @@ export default css`
     .col-lx-3 {
       width: 25%;
     }
+
     .col-lx-4 {
       width: 33.33333%;
     }
+
     .col-lx-5 {
       width: 41.66666%;
     }
+
     .col-lx-6 {
       width: 50%;
     }
+
     .col-lx-7 {
       width: 58.33333%;
     }
+
     .col-lx-8 {
       width: 66.66666%;
     }
@@ -1067,31 +1095,76 @@ export default css`
   .w-100 {
     width: 100%;
   }
-  
+
   .h-100 {
     height: 100%;
   }
-  
-  .bg-white{
+
+  .bg-white {
     background-color: white;
   }
-  
-  .card{
+
+  .card {
     box-shadow: 0 0 10px 2px #00000012;
     border-radius: 4px;
     overflow: hidden;
   }
-  
-  .badge{
-    font-size: 9px;
+
+  .badge {
+    font-size: 12px;
     padding: 2px 4px;
     margin: 1px;
-    border-radius: 100px;
+    border-radius: 3px;
+    font-weight: 300;
     background-color: gray;
     color: white;
   }
-  
-  .badge-green{
-    background-color: green;
+
+  .badge-green {
+    background-color: rgba(56, 152, 56, 0.85);
+  }
+
+  // Margins
+  .my-2 {
+    margin-top: ${theme.spacing[2]}px;
+    margin-bottom: ${theme.spacing[2]}px;
+  }
+
+  .my-3 {
+    margin-top: ${theme.spacing[3]}px;
+    margin-bottom: ${theme.spacing[3]}px;
+  }
+
+  .mt-1 {
+    margin-top: ${theme.spacing[1]}px;
+  }
+
+  .mt-2 {
+    margin-top: ${theme.spacing[2]}px;
+  }
+
+  .ml-1 {
+    margin-left: ${theme.spacing[1]}px;
+  }
+
+  .ml-2 {
+    margin-left: ${theme.spacing[2]}px;
+  }
+
+  .mb-2 {
+    margin-bottom: ${theme.spacing[2]}px;
+  }
+
+  // Paddings
+  .p-0 {
+    padding: 0 !important;
+  }
+
+  .pl-1 {
+    padding-bottom: ${theme.spacing[1]}px;
+  }
+
+  .pb-2 {
+    padding-bottom: ${theme.spacing[2]}px;
   }
 `

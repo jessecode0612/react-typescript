@@ -126,6 +126,7 @@ export const borderRadiusDefault = '8px'
 
 export const footerLight = '#0070f3'
 export const footerDark = '#fba60f'
+export const spacing = [4, 8, 16, 32, 40, 48]
 
 export default {
     primary,

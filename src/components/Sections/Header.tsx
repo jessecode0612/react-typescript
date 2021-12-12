@@ -19,10 +19,13 @@ import {useScroll} from '../../utils/hooks/useScroll'
 
 const menuList = [
     {
+        name: 'Document',
+        path: '/docs'
+    },
+    {
         name: 'Samples',
-        path: '/samples',
         icon: <MovingIcon/>,
-        children: [
+        list: [
             {
                 name: 'Simple API',
                 path: '/samples/simple-api',
@@ -100,14 +103,17 @@ const styles = css`
   background-color: #00000000;
   transition: background-color .5s ${theme.transitionEasing};
   color: white;
+  fill: white;
+  height: 70px;
 
   &[data-background="true"] {
     background-color: #ffffff;
     transition: background-color .5s ${theme.transitionEasing};
     box-shadow: ${theme.shadow};
     color: black;
+    fill: black;
   }
-  
+
   .header {
     display: flex;
     flex-direction: row;
@@ -116,7 +122,6 @@ const styles = css`
     text-align: center;
     width: 100%;
     margin: auto;
-    height: 70px;
 
     ${theme.MOBILE_MEDIA_QUERY} {
       justify-content: center;
@@ -155,6 +160,7 @@ const styles = css`
       font-size: 1rem;
     }
   }
+
   &[data-background="true"] {
     .title {
       color: black;

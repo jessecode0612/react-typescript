@@ -4,6 +4,7 @@ import {Product, ProductItem} from "../../components/ProductItem";
 import {Pagination} from "../../components/Pagination";
 import DefaultLayout from "../../layouts/DefaultLayout";
 import LoadingIcon from '../../components/LoadingIcon'
+import Banner from '../../components/Sections/Banner'
 
 const LIMIT_PER_PAGE: number = 9;
 
@@ -34,8 +35,8 @@ export default function RecipesPage () {
 
     return (
         <DefaultLayout>
+            <Banner title="Product List" />
             <div className="container">
-                <h3 className={'text-center'}> Product List </h3>
                 <div className={'flex-center flex-column'}>
                     {loading ? (
                         <LoadingIcon/>

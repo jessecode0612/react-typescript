@@ -4,6 +4,8 @@ import DefaultLayout from "../layouts/DefaultLayout"
 import ContactForm from '../components/Sections/ContactForm'
 import Hero from '../components/Sections/Hero'
 import Projects from '../components/Sections/Projects'
+import Skills from '../components/Sections/Skills'
+import AboutMe from '../components/Sections/AboutMe'
 
 export const HomePage = () => {
 
@@ -12,6 +14,8 @@ export const HomePage = () => {
             <div css={styles}>
                 <Hero />
                 <Projects />
+                <AboutMe />
+                <Skills />
                 <ContactForm />
             </div>
         </DefaultLayout>

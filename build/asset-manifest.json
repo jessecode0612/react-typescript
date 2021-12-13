@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.js": "/bhusan.bizinabox.com/static/js/main.7fe259b8.chunk.js",
+    "main.js.map": "/bhusan.bizinabox.com/static/js/main.7fe259b8.chunk.js.map",
+    "runtime-main.js": "/bhusan.bizinabox.com/static/js/runtime-main.b482bc34.js",
+    "runtime-main.js.map": "/bhusan.bizinabox.com/static/js/runtime-main.b482bc34.js.map",
+    "static/js/2.9870072f.chunk.js": "/bhusan.bizinabox.com/static/js/2.9870072f.chunk.js",
+    "static/js/2.9870072f.chunk.js.map": "/bhusan.bizinabox.com/static/js/2.9870072f.chunk.js.map",
+    "index.html": "/bhusan.bizinabox.com/index.html",
+    "precache-manifest.fbe6a41b46b777962a5721a1d19bd8d5.js": "/bhusan.bizinabox.com/precache-manifest.fbe6a41b46b777962a5721a1d19bd8d5.js",
+    "service-worker.js": "/bhusan.bizinabox.com/service-worker.js",
+    "static/js/2.9870072f.chunk.js.LICENSE.txt": "/bhusan.bizinabox.com/static/js/2.9870072f.chunk.js.LICENSE.txt",
+    "static/media/banner.jpg": "/bhusan.bizinabox.com/static/media/banner.9e20bc10.jpg",
+    "static/media/docs.jpg": "/bhusan.bizinabox.com/static/media/docs.a8b605c6.jpg",
+    "static/media/tcn.png": "/bhusan.bizinabox.com/static/media/tcn.890103d8.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b482bc34.js",
+    "static/js/2.9870072f.chunk.js",
+    "static/js/main.7fe259b8.chunk.js"
+  ]
+}

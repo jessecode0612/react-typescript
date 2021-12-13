@@ -67,7 +67,7 @@ export default function Header() {
                 <Link className="logoWrap" to="/">
                     <div className="logoWrap">
                         <strong className="title" hidden={isMobile}>
-                            BP
+                            YOW
                         </strong>
                     </div>
                 </Link>
@@ -99,12 +99,12 @@ export default function Header() {
 }
 
 const styles = css`
-  display: flex;
   background-color: #00000000;
   transition: background-color .5s ${theme.transitionEasing};
   color: white;
   fill: white;
-  height: 70px;
+  top: 18px;
+  height: 60px;
 
   &[data-background="true"] {
     background-color: #ffffff;
@@ -113,7 +113,7 @@ const styles = css`
     color: black;
     fill: black;
   }
-
+  
   .header {
     display: flex;
     flex-direction: row;

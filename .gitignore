@@ -2,6 +2,10 @@
 # IDE setting
 .idea
 
+#build
+build
+build.zip
+
 # yarn setting
 .yarn
 !.yarn/releases

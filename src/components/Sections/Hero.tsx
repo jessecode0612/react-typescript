@@ -10,7 +10,7 @@ export default function Hero() {
     return (
         <div css={styles}>
             <div className="container">
-                <h5>I am Bhusan Paudel</h5>
+                <h4>王燕鸥 (Wang YanOu)</h4>
                 <h2>Full Stack Software Engineer</h2>
                 <p>
                     You can get fully-trusted, reliable and productive service for your website and mobile apps.

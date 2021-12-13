@@ -135,7 +135,14 @@ export default {
     borderRadiusSm,
     shadow,
     shadowPrimary,
+
+    DEFAULT_MEDIA_QUERY,
     MOBILE_MEDIA_QUERY,
     MIN_MOBILE_MEDIA_QUERY,
-    transitionEasing
+
+    transitionEasing,
+
+    footerLight,
+    footerDark,
+    textDarkBg
 }

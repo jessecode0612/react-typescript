@@ -20,7 +20,7 @@ export default function Projects() {
             <div className="row" >
                 {
                     projects.map((project, index) => (
-                        <div className="col-lg-4">
+                        <div className="col-lg-4" key={index.toString()}>
                             <a href={project.link} target="_blank" rel="noopener noreferrer">
                                 <div key={index.toString()} className="project-item">
                                     <img src={project.image} alt={project.name}/>

@@ -219,6 +219,22 @@ export function CheckmarkOutlineIcon({ extraCss }: Props) {
   )
 }
 
+export function CheckCircleOutline({ extraCss }: Props) {
+  return (
+    <SVGIcon
+      icon="#check-circle-outline"
+      className="icon"
+      extraCss={[
+        css`
+          width: 18px;
+          height: 18px;
+          fill: white;
+        `
+      ].concat(extraCss!)}
+    />
+  )
+}
+
 export function CloseIcon({ extraCss }: Props) {
   return (
     <SVGIcon

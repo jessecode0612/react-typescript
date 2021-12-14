@@ -2,6 +2,7 @@ export const primaryColor = '#0103f3'
 export const primaryDarkColor = '#02037a'
 export const primaryLightColor = '#d4d4e8'
 export const primaryLighterColor = '#dddded'
+export const textErrorColor = '#f74800'
 export const secondaryColor = '#f7f6f3'
 export const textColor = '#323e48'
 export const headerColor = '#2c363f'
@@ -135,6 +136,7 @@ export default {
     borderRadiusSm,
     shadow,
     shadowPrimary,
+    textErrorColor,
 
     DEFAULT_MEDIA_QUERY,
     MOBILE_MEDIA_QUERY,

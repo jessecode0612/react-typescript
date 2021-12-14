@@ -13,7 +13,9 @@ export default function Hero() {
                 <h4>王燕鸥 (Wang YanOu)</h4>
                 <h2>Full Stack Software Engineer</h2>
                 <p>
-                    You can get fully-trusted, reliable and productive service for your website and mobile apps.
+                    I design, develop, deploy, and maintain custom web and client applications using the latest technologies and industry standards.
+                    <br/>
+                    Working closely with our customers during the design and testing phases ensure a result everyone is proud of.
                 </p>
             </div>
         </div>

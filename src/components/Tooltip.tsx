@@ -1,22 +1,20 @@
-import * as theme from '../styles/theme'
-
-import React, {HTMLAttributes, useEffect, useRef} from 'react'
+import React, { HTMLAttributes, useEffect, useRef } from 'react'
+import { renderToStaticMarkup } from 'react-dom/server'
 
 interface Props extends HTMLAttributes<HTMLElement> {
-    title: string
+    content?: string | JSX.Element | (() => JSX.Element)
 }
 
-export default function Tooltip({title, children, ...rest}: Props) {
+export default function Tooltip({ content, children, ...rest }: Props) {
     const tooltipRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
         const element: HTMLDivElement = tooltipRef.current!
-
         const appendToolTip = () => {
             const rect = element.getBoundingClientRect()
             const tooltipContainerId = '__tooltip-container'
             let toolTipContainer = document.getElementById(tooltipContainerId)
-            if (toolTipContainer === null && title) {
+            if (toolTipContainer === null && content) {
                 toolTipContainer = document.createElement('div')
                 toolTipContainer.setAttribute('id', tooltipContainerId)
                 toolTipContainer.style.cssText = `
@@ -50,7 +48,13 @@ export default function Tooltip({title, children, ...rest}: Props) {
           transform: rotate(45deg);
           border-radius: 2px;
         `
-                toolTipContainer.innerHTML = title
+                if (typeof content === 'string') {
+                    toolTipContainer.innerHTML = 'content'
+                } else if (typeof content === 'function') {
+                    toolTipContainer.innerHTML = renderToStaticMarkup(content())
+                } else {
+                    toolTipContainer.innerHTML = renderToStaticMarkup(content)
+                }
                 toolTipContainer.prepend(tail)
                 document.body.appendChild(toolTipContainer)
 
@@ -64,7 +68,7 @@ export default function Tooltip({title, children, ...rest}: Props) {
                             }px;
             transform: scale(1);
             transition-delay: 500ms;
-            transition: transform 200ms ${theme.transitionEasing};
+            transition: all 200ms ease-out;
           `
                     }
                 }, 10)

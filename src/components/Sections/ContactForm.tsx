@@ -4,6 +4,8 @@ import { useState} from 'react'
 import Input from '../Input'
 import {InputOnChangeProps} from '../../types'
 import theme from '../../styles/theme'
+import Button from '../Button'
+import ToastManager from '../Toast/ToastManager'
 
 const initialState = {
     firstName: '',
@@ -17,9 +19,18 @@ const initialState = {
 export default function ContactForm() {
 
     const [state, setState] = useState(initialState)
+    const [submitting, setSubmitting] = useState(false)
 
     const handleChange = ({name, value}: InputOnChangeProps) => {
         setState({...state, [name!]: value})
+    }
+
+    const handleSubmit = () => {
+        setSubmitting(true)
+        setTimeout(()=>{
+            setSubmitting(false)
+            ToastManager.success("Successfully sent your message!")
+        }, 1500)
     }
 
     return (
@@ -88,6 +99,16 @@ export default function ContactForm() {
                                 label="Message"
                                 multiline={true}
                             />
+                        </div>
+                        <div className="col-12">
+                            <Button
+                                transparent={true}
+                                style={{marginLeft:'auto'}}
+                                submitting={submitting}
+                                onClick={handleSubmit}
+                            >
+                                Submit
+                            </Button>
                         </div>
                     </div>
                 </div>

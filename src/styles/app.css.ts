@@ -197,10 +197,9 @@ export default css`
   }
 
   a {
-    color: ${theme.link};
+    color: #555555;
     font-weight: 400;
     text-decoration: none;
-    text-decoration-color: ${theme.link};
     text-decoration-thickness: 0.1em;
     text-underline-offset: 2px;
     transition: color 0.1s ${theme.transitionEasing},

@@ -145,7 +145,9 @@ export const MenuItem = (
                             {icon}
                             <span className="menu-title">{name}</span>
                         </div>
-                        <MenuItemList list={list}/>
+                        <div className="py-1">
+                            <MenuItemList list={list}/>
+                        </div>
                     </Fragment>
                 }
             />
@@ -274,7 +276,7 @@ const styles = {
     `,
     menuLink: css`
       list-style: none;
-      line-height: 50px;
+      line-height: 25px;
       text-align: left;
       color: black;
       padding-left: 20px;
@@ -295,6 +297,8 @@ const styles = {
           color: white;
           stroke: white;
           fill: white;
+          width: 14px;
+          height: 14px;
         }
       }
 

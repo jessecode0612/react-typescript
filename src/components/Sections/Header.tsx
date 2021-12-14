@@ -26,16 +26,9 @@ const menuList = [
         name: 'Samples',
         icon: <MovingIcon/>,
         list: [
-            {
-                name: 'Simple API',
-                path: '/samples/simple-api',
-                icon: <ArrowNextIcon/>
-            },
-            {
-                name: 'Resizable',
-                path: '/samples/resizable',
-                icon: <ArrowNextIcon/>
-            }
+            { name: 'Simple API', path: '/samples/simple-api', icon: <ArrowNextIcon/> },
+            { name: 'Resizable', path: '/samples/resizable', icon: <ArrowNextIcon/> },
+            { name: 'Toaster', path: '/samples/toaster', icon: <ArrowNextIcon/> }
         ]
     }
 ]

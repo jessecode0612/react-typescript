@@ -33,6 +33,15 @@ export default function ContactForm() {
         }, 1500)
     }
 
+    const submitDisabled = () => {
+        for (const key in state){
+            if (state[key] === ''){
+                return true
+            }
+        }
+        return false
+    }
+
     return (
         <div css={styles} className="container">
             <div className="row">
@@ -106,6 +115,7 @@ export default function ContactForm() {
                                 style={{marginLeft:'auto'}}
                                 submitting={submitting}
                                 onClick={handleSubmit}
+                                disabled={submitDisabled()}
                             >
                                 Submit
                             </Button>

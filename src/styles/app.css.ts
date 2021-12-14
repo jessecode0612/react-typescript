@@ -1159,6 +1159,16 @@ export default css`
     padding: 0 !important;
   }
 
+  .py-1 {
+    padding-top: ${theme.spacing[1]}px;
+    padding-bottom: ${theme.spacing[1]}px;
+  }
+
+  .py-2 {
+    padding-top: ${theme.spacing[2]}px;
+    padding-bottom: ${theme.spacing[2]}px;
+  }
+
   .pl-1 {
     padding-bottom: ${theme.spacing[1]}px;
   }

@@ -132,7 +132,6 @@ const styles = css`
   margin: 50px auto;
   background-color: white;
   border-radius: ${theme.borderRadiusDefault};
-  box-shadow: ${theme.shadow};
   
   .contact-detail{
     width: 100%;

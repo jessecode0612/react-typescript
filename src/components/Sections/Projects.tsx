@@ -8,21 +8,39 @@ const projects = [
         image: require("../../assets/projects/spokestack.png"),
         link: 'https://spokestack.io/',
         tags: ['NextJS', 'Node',"Websocket", 'SASS'],
-        description:'Spokestack is a powerful platform of open source libraries and robust services to make your software fully voice-enabled. Get started with open-source libraries that add speech recognition, text-to-speech, and language understanding to your software with one simple cross-platform API. We offer SDKs for different platforms that let you manage voice interactions inside your software.'
+        description:'Spokestack is a powerful platform of open source libraries and robust services to make your software fully voice-enabled. ' +
+            'Get started with open-source libraries that add speech recognition, text-to-speech, and language understanding to your software with one simple cross-platform API. ' +
+            'We offer SDKs for different platforms that let you manage voice interactions inside your software.'
     },
     {
         name: 'Faevva Pay',
         image: require("../../assets/projects/tcn.png"),
         link: 'http://tcn.webbb.site/',
         tags: ['React', 'ThreeJS', 'Node',"MongoDB"],
-        description:'Designed in Bolzano, Italy, artfully crafted, and polished by hand, Penarosa wants nothing less than making wristwatches for the most fashionable wrists. The project was to build the online eCommerce platform with a fancy 3D simulator.'
+        description:'Designed in Bolzano, Italy, artfully crafted, and polished by hand, Penarosa wants nothing less than making wristwatches for the most fashionable wrists. ' +
+            'The project was to build the online eCommerce platform with a fancy 3D simulator.'
     },
     {
         name: 'Wasil-iq',
         image: require("../../assets/projects/wasil.png"),
         link: 'https://wasil-iq.com/ON/',
         tags: ['PHP', 'MySQL','Javascript', 'Paypal','Stripe'],
-        description: 'Wasil is the first and the biggest fully automated shipping company in Iraq. They at Wasil aim to bring Iraq a step closer to the modern world by providing exceptional shipping services to our lovely costumers.'
+        description: 'Wasil is the first and the biggest fully automated shipping company in Iraq. ' +
+            'They at Wasil aim to bring Iraq a step closer to the modern world by providing exceptional shipping services to our lovely costumers.'
+    },
+    {
+        name: 'Havvi',
+        image: require("../../assets/projects/havvi.png"),
+        link: 'https://havvi.app',
+        tags: ['Expo', 'Firestore','Firebase function', 'FCM','NodeJS','Strip'],
+        description: ''
+    },
+    {
+        name: 'Chill Car Service',
+        image: require("../../assets/projects/chill.png"),
+        link: 'https://havvi.app',
+        tags: ['React Native', 'Firestore','Firebase function','FCM' ,'Tap', 'NodeJS'],
+        description: ''
     }
 ]
 

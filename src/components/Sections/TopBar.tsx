@@ -1,14 +1,17 @@
 /** @jsx jsx */
 import {css, jsx} from '@emotion/react'
+import {useScreen} from '../../utils/hooks'
+import theme from '../../styles/theme'
 
 export default function TopBar() {
 
+    const {isMobile} = useScreen()
 
     return (
         <div css={styles}>
-            <span>Contact Me</span>
-            <small>王燕鸥(Wang YanOu)</small>
-            <a href="mailto:wyanou213@163.com">wyanou213@163.com</a>
+            <span hidden={isMobile} >Contact Me</span>
+            <a href="tel:+16612280244">(661) 228-0244</a>
+            <a href="mailto:wyanou213@163.com">bhupaudel0@gmail.com</a>
         </div>
     )
 }
@@ -23,6 +26,13 @@ const styles = css`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  z-index: 10002;
+  font-weight: 200;
+  
+  ${theme.MOBILE_MEDIA_QUERY}{
+    padding: 2px 10px;
+  }
+  
   span{
     margin-right: 20px;
     font-size: 14px;

@@ -60,7 +60,7 @@ export default function Header() {
                 <Link className="logoWrap" to="/">
                     <div className="logoWrap">
                         <strong className="title" hidden={isMobile}>
-                            YOW
+                            BP
                         </strong>
                     </div>
                 </Link>
@@ -125,6 +125,7 @@ const styles = css`
       position: absolute;
       left: 15px;
       padding: 4px;
+      top: 20px;
 
       ${theme.MOBILE_MEDIA_QUERY} {
         display: block;

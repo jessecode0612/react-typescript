@@ -1,18 +1,19 @@
 /** @jsx jsx */
 import {css, jsx} from '@emotion/react'
 import theme from '../../styles/theme'
+import {useScreen} from '../../utils/hooks'
 
 const bannerImage = require('../../assets/images/banner.jpg')
 
 
 export default function Hero() {
-
+    const {isMobile} = useScreen()
     return (
         <div css={styles}>
             <div className="container">
-                <h4>王燕鸥 (Wang YanOu)</h4>
+                <h4>Bhusan Paudel</h4>
                 <h2>Full Stack Software Engineer</h2>
-                <p>
+                <p hidden={isMobile}>
                     I design, develop, deploy, and maintain custom web and client applications using the latest technologies and industry standards.
                     <br/>
                     Working closely with our customers during the design and testing phases ensure a result everyone is proud of.

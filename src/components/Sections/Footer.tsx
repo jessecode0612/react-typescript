@@ -10,7 +10,7 @@ export default function Footer({isDark = false}: Props) {
     return (
         <footer css={styles.footer}>
             <div className={`footer-container ${isDark ? 'dark' : ''}`}>
-                <span className="text-sm">王燕鸥 © {new Date().getUTCFullYear()}</span>
+                <span className="text-sm">Copyright © {new Date().getUTCFullYear()} BP</span>
                 <div className="footer-link-wrapper">
                     <a href="#home">
                         <span className="footer-link text-bold">Home</span>
@@ -35,7 +35,6 @@ const styles = {
       margin-top: auto;
       border-top: ${theme.borderDefault};
       background-color: white;
-      height: 56px;
       position: relative;
       z-index: 10002;
 

@@ -9,7 +9,7 @@ const bannerImage = require('../../assets/images/banner.jpg')
 export default function Hero() {
     const {isMobile} = useScreen()
     return (
-        <div css={styles}>
+        <div css={styles} id="home">
             <div className="container">
                 <h4>Bhusan Paudel</h4>
                 <h2>Full Stack Software Engineer</h2>

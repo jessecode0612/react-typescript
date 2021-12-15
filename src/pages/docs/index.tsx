@@ -36,7 +36,11 @@ function ListItem(
     return (
         <div className="list-item">
             <div className="menu-item" onClick={handleItemClick}>
-                <strong>{item.title}</strong>
+                {
+                    item.list ?
+                        <strong>{item.title}</strong> :
+                        <span>{item.title}</span>
+                }
                 {item.list && <ArrowNextIcon/>}
             </div>
             <div className="menu-list">
@@ -116,6 +120,8 @@ const styles = css`
     height: 100vh;
     top: 18px;
     border-right: ${theme.borderDefault};
+    overflow-y: auto;
+    padding-bottom: 200px;
 
     .list-item {
       width: 100%;

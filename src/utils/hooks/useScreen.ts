@@ -4,8 +4,8 @@ const MOBILE_WIDTH = 576
 const TABLET_WIDTH = 786
 
 interface ScreenTypes {
-    width?: number
-    height?: number
+    width: number
+    height: number
     isMobile?: boolean
     isDesktop?: boolean
     isTablet?: boolean
@@ -13,8 +13,8 @@ interface ScreenTypes {
 
 export function useScreen(){
     const [screen, setScreen] = useState<ScreenTypes>({
-        width: undefined,
-        height: undefined,
+        width: 0,
+        height: 0,
         isMobile: undefined,
         isDesktop: undefined,
         isTablet: undefined

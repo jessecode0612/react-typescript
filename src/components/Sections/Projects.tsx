@@ -47,7 +47,7 @@ const projects = [
 export default function Projects() {
 
     return (
-        <div css={styles} className="container">
+        <div css={styles} className="container" id="projects">
             <h3>A few of my projects</h3>
             <div className="row" >
                 {

@@ -43,7 +43,7 @@ export default function ContactForm() {
     }
 
     return (
-        <div css={styles} className="container">
+        <div css={styles} className="container" id="contact-me">
             <div className="row">
                 <div className="col-df-4">
                     <div className="contact-detail">

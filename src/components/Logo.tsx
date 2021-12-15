@@ -7,7 +7,7 @@ export default function Logo() {
     return (
         <div css={styles}>
             <Link to="/" >
-                <strong>W&M EXPERT</strong>
+                <strong>BP TECH</strong>
             </Link>
         </div>
     )

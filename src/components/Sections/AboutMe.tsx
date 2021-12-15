@@ -5,7 +5,7 @@ export default function AboutMe() {
 
 
     return (
-        <div css={styles} className="container" >
+        <div css={styles} className="container" id="about-me" >
             <h3>About me</h3>
             <p>
                 I am specialized in Web and Mobile app development. I am highly specialized in Web and Mobile app development. I have solid knowledge in these areas and also a deep understanding of the technical side of things.

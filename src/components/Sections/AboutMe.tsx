@@ -13,7 +13,7 @@ export default function AboutMe() {
                 I pride myself on completing projects on time
             </p>
             <p>
-                Detail-oriented, adaptable and hard-working with 5+ years of experiences in developing mobile & web applications with contributing to lots of personal businesses and companies so far.
+                Detail-oriented, adaptable and hard-working with 6+ years of experiences in developing mobile & web applications with contributing to lots of personal businesses and companies so far.
                 I really enjoy working on cutting-edge projects and developing enabling new technologies in the hope that these will one day translate back to the real world and have a direct impact on our lives.
                 I also enjoy being surrounded by brilliant people that share the vision of “technology for good” and I am truly humbled by their support. Meanwhile,
                 I am excited by the ever-growing challenges I am faced with as my career unfolds, and keen to taking them on.

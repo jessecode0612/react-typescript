@@ -4,43 +4,56 @@ import theme from '../../styles/theme'
 
 const projects = [
     {
+        category: 'web',
         name: 'Spokestack',
         image: require("../../assets/projects/spokestack.png"),
-        link: 'https://spokestack.io/',
+        website: 'https://spokestack.io/',
         tags: ['NextJS', 'Node',"Websocket", 'SASS'],
         description:'Spokestack is a powerful platform of open source libraries and robust services to make your software fully voice-enabled. ' +
             'Get started with open-source libraries that add speech recognition, text-to-speech, and language understanding to your software with one simple cross-platform API. ' +
             'We offer SDKs for different platforms that let you manage voice interactions inside your software.'
     },
     {
+        category: 'web',
         name: 'Faevva Pay',
         image: require("../../assets/projects/tcn.png"),
-        link: 'http://tcn.webbb.site/',
+        website: 'http://tcn.webbb.site/',
         tags: ['React', 'ThreeJS', 'Node',"MongoDB"],
-        description:'Designed in Bolzano, Italy, artfully crafted, and polished by hand, Penarosa wants nothing less than making wristwatches for the most fashionable wrists. ' +
-            'The project was to build the online eCommerce platform with a fancy 3D simulator.'
+        description:'Faevva Pay is an example website built with MERN stack. TreeJS for front design and simple login & register function and has dashboard.'
     },
     {
+        category: 'web',
         name: 'Wasil-iq',
         image: require("../../assets/projects/wasil.png"),
-        link: 'https://wasil-iq.com/ON/',
+        website: 'https://wasil-iq.com/ON/',
         tags: ['PHP', 'MySQL','Javascript', 'Paypal','Stripe'],
-        description: 'Wasil is the first and the biggest fully automated shipping company in Iraq. ' +
-            'They at Wasil aim to bring Iraq a step closer to the modern world by providing exceptional shipping services to our lovely costumers.'
+        description: 'Wasil is the first and the biggest fully automated shipping company in Iraq. They at Wasil aim to bring Iraq a step closer to the modern world by providing exceptional shipping services to our lovely costumers.'
     },
     {
+        category: 'mobile',
         name: 'Havvi',
         image: require("../../assets/projects/havvi.png"),
-        link: 'https://havvi.app',
+        website: 'https://havvi.app',
         tags: ['Expo', 'Firestore','Firebase function', 'FCM','NodeJS','Strip'],
-        description: ''
+        apple: 'https://apps.apple.com/tt/app/havvi-fitness-home-workouts/id1577812599',
+        description: 'Havvi brings you the best home fitness content from 100+ of the world’s top creators, totaling over 16,000 workouts and growing daily.'
     },
     {
+        category: 'mobile',
         name: 'Chill Car Service',
         image: require("../../assets/projects/chill.png"),
-        link: 'https://havvi.app',
+        website: 'https://havvi.app',
         tags: ['React Native', 'Firestore','Firebase function','FCM' ,'Tap', 'NodeJS'],
-        description: ''
+        description: 'CHILL is an online car wash platform (Interior, exterior & Disinfectant) with extended features, The only online car wash market place that connects to car wash company and customer with instant booking at the BEST price'
+    },
+    {
+        category: 'mobile, web',
+        name: 'Cloudpin',
+        image: require("../../assets/projects/cloudpin.png"),
+        website: 'https://cloudpin.it/',
+        apple: 'https://apps.apple.com/us/app/cloudpin/id1516110996',
+        tags: ['Expo', 'Firestore','Firebase function','FCM' ,'Tap', 'GatsbyJS'],
+        description: 'Cloudpin lets users broadcast content to anyone in the world by simply sharing an easy to remember pin code.'
     }
 ]
 
@@ -53,7 +66,7 @@ export default function Projects() {
                 {
                     projects.map((project, index) => (
                         <div className="col-lg-4" key={index.toString()}>
-                            <a href={project.link} target="_blank" rel="noopener noreferrer">
+                            <a href={project.website} target="_blank" rel="noopener noreferrer">
                                 <div key={index.toString()} className="project-item">
                                     <img src={project.image} alt={project.name}/>
                                     <h5>{project.name}</h5>

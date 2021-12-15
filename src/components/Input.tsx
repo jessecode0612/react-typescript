@@ -22,65 +22,66 @@ interface Props
     onChange: ({name, value}: InputOnChangeProps) => void
 }
 
-const Input: FunctionComponent<Props> =
-    ({
-         error,
-         name,
-         onChange,
-         value,
-         className,
-         label,
-         multiline = false,
-        rows=5,
-         ...rest
-     }) => {
+const Input: FunctionComponent<Props> = (
+    {
+        error,
+        name,
+        onChange,
+        value,
+        className,
+        label,
+        multiline = false,
+        rows = 5,
+        ...rest
+    }
+) => {
 
-        const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-            onChange({
-                name: name,
-                value: event.target.value
-            })
-        }
+    const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        onChange({
+            name: name,
+            value: event.target.value
+        })
+    }
 
-        const handleClear = () => {
-            onChange({
-                name: name,
-                value: ''
-            })
-        }
+    const handleClear = () => {
+        onChange({
+            name: name,
+            value: ''
+        })
+    }
 
-        return (
-            <div css={styles}>
-                {label && <label>{label}</label>}
-                <div className={'input-wrapper ' + className}>
-                    {
-                        multiline ?
-                            <textarea
-                                className={`input ${error ? 'error' : ''}`}
-                                onChange={handleChange}
-                                value={value}
-                                rows={rows}
-                                {...rest}
-                            >
+    return (
+        <div css={styles}>
+            {label && <label>{label}</label>}
+            <div className={'input-wrapper ' + className}>
+                {
+                    multiline ?
+                        <textarea
+                            className={`input ${error ? 'error' : ''}`}
+                            onChange={handleChange}
+                            value={value}
+                            rows={rows}
+                            {...rest}
+                        >
                                 {value}
                             </textarea> :
-                            <input
-                                className={`input ${error ? 'error' : ''}`}
-                                onChange={handleChange}
-                                value={value}
-                                {...rest}
-                            />
-                    }
-                    {value && (
-                        <div className="clear-btn" onClick={handleClear}>
-                            <TimesIcon/>
-                        </div>
-                    )}
-                </div>
-                {error && <small className="error">{error}</small>}
+                        <input
+                            className={`input ${error ? 'error' : ''}`}
+                            onChange={handleChange}
+                            value={value}
+                            {...rest}
+                        />
+                }
+                {value && (
+                    <div className="clear-btn" onClick={handleClear}>
+                        <TimesIcon/>
+                    </div>
+                )}
             </div>
-        )
-    }
+            {error && <small className="error">{error}</small>}
+        </div>
+    )
+}
 
 export default Input
 

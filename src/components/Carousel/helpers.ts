@@ -1,4 +1,3 @@
-import { MouseEvent, TouchEvent } from 'react';
 import { SlideDirection, Item } from './types';
 
 export class Circular<T> {
@@ -124,15 +123,6 @@ export const initItems = (items: Item[], slide: number, infinite: boolean): Item
 
     return newArray;
 };
-
-export function getPageX(e: TouchEvent | MouseEvent): number {
-    if (e.nativeEvent instanceof MouseEvent) {
-        return e.nativeEvent.pageX;
-    } else if (e.nativeEvent instanceof TouchEvent) {
-        return e.nativeEvent.changedTouches[0].pageX;
-    }
-    return 0;
-}
 
 export function getOuterWidth(el: HTMLElement) {
     const style = getComputedStyle(el);

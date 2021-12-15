@@ -15,7 +15,7 @@ import {
     ArrowNextIcon
 } from '../Icons'
 import Menu from '../Menu'
-import {useScroll} from '../../utils/hooks/useScroll'
+import {useScroll} from '../../utils/hooks'
 
 const menuList = [
     {
@@ -28,7 +28,8 @@ const menuList = [
         list: [
             { name: 'Simple API', path: '/samples/simple-api', icon: <ArrowNextIcon/> },
             { name: 'Resizable', path: '/samples/resizable', icon: <ArrowNextIcon/> },
-            { name: 'Toaster', path: '/samples/toaster', icon: <ArrowNextIcon/> }
+            { name: 'Toaster', path: '/samples/toaster', icon: <ArrowNextIcon/> },
+            { name: 'Carousel', path: '/samples/carousel', icon: <ArrowNextIcon/> },
         ]
     }
 ]

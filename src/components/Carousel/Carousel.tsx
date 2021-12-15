@@ -1,25 +1,25 @@
-import React, {
+/** @jsx jsx */
+import {css, jsx} from '@emotion/react'
+import {
     useState,
     FunctionComponent,
-    KeyboardEvent,
-    useEffect,
     useRef,
     ReactElement,
 } from 'react';
 import { Arrow } from './Arrow';
 import { ItemProvider } from './Item';
 import {
-    rotateItems,
     getTransformAmount,
-    getCurrent,
     initItems,
     getShowArrow,
     cleanItems,
-    updateNodes,
-} from './helpers';
-import { SlideDirection, Item, ArrowKeys } from './types';
-import styles from './styles/styles.module.css';
-import { usePrevious } from '../../utils/hooks';
+    getCurrent
+} from './helpers'
+import {
+    SlideDirection,
+    Item,
+} from './types';
+
 
 export interface CarouselProps {
     children: Item[];
@@ -38,15 +38,6 @@ export interface CarouselProps {
     pageCount?: number;
     leftArrow?: ReactElement | null;
     rightArrow?: ReactElement | null;
-}
-
-export interface CarouselState {
-    items: Item[];
-    width: number;
-    transform: number;
-    transition: number;
-    isSliding: boolean;
-    current: number;
 }
 
 export const defaultProps: Required<CarouselProps> = {
@@ -70,10 +61,8 @@ export const defaultProps: Required<CarouselProps> = {
 
 export const Carousel: FunctionComponent<CarouselProps> = (userProps: CarouselProps) => {
     const props: Required<CarouselProps> = { ...defaultProps, ...userProps };
-    const [items, setItems] = useState(
-        initItems(props.children, props.slide, props.infinite),
-    );
-    const [width, setWidth] = useState(0);
+
+    const [width] = useState(0);
     const [animation, setAnimation] = useState({
         transform: 0,
         transition: 0,
@@ -83,33 +72,10 @@ export const Carousel: FunctionComponent<CarouselProps> = (userProps: CarouselPr
     const [showArrow, setShowArrow] = useState(
         getShowArrow(props.children.length, props.show, props.infinite, current),
     );
-    const prevChildren = usePrevious<Item[]>(userProps.children);
-    const [page, setPage] = useState<number>(0);
+
+    const [page] = useState<number>(0);
     const itemsRef = useRef(initItems(props.children, props.slide, props.infinite));
     const isPaginating = useRef(false);
-
-    if (props.dynamic) {
-        useEffect(() => {
-            const newItems = updateNodes(
-                itemsRef.current,
-                props.children,
-                prevChildren,
-                props.slide,
-                props.infinite,
-            );
-
-            setItems(newItems);
-            itemsRef.current = newItems;
-            if (
-                page < props.pageCount &&
-                prevChildren &&
-                prevChildren?.length < props.children.length
-            ) {
-                slide(SlideDirection.Right);
-                setPage(page + 1);
-            }
-        }, [props.children]);
-    }
 
     const slide = (direction: SlideDirection) => {
         if (
@@ -134,13 +100,7 @@ export const Carousel: FunctionComponent<CarouselProps> = (userProps: CarouselPr
         const elements = props.children;
 
         const next = getCurrent(current, props.slide, elements.length, direction);
-        const rotated = props.infinite
-            ? rotateItems(elements, items, next, props.show, props.slide, direction)
-            : items;
-        if (props.infinite && direction === SlideDirection.Right) {
-            setItems(rotated);
-            itemsRef.current = rotated;
-        }
+
         setAnimation({
             transform:
                 animation.transform + getTransformAmount(width, props.slide, direction),
@@ -152,11 +112,10 @@ export const Carousel: FunctionComponent<CarouselProps> = (userProps: CarouselPr
         setTimeout(() => {
             if (props.infinite) {
                 const cleanedItems = cleanItems(
-                    direction === SlideDirection.Right ? itemsRef.current : rotated,
+                     itemsRef.current,
                     props.slide,
                     direction,
                 );
-                setItems(cleanedItems);
                 itemsRef.current = cleanedItems;
             }
             setAnimation({
@@ -172,7 +131,7 @@ export const Carousel: FunctionComponent<CarouselProps> = (userProps: CarouselPr
     };
 
     const widthCallBack = (calculatedWidth: number) => {
-        setWidth(calculatedWidth);
+        // setWidth(calculatedWidth);
         setAnimation({
             transform: props.infinite
                 ? getTransformAmount(calculatedWidth, props.slide, SlideDirection.Right)
@@ -198,22 +157,8 @@ export const Carousel: FunctionComponent<CarouselProps> = (userProps: CarouselPr
         slide(direction);
     };
 
-    const handleOnKeyDown = (e: KeyboardEvent) => {
-        if (e.keyCode === ArrowKeys.Left) {
-            slide(SlideDirection.Left);
-        } else if (e.keyCode === ArrowKeys.Right) {
-            slide(SlideDirection.Right);
-        }
-    };
-
     return (
-        <div
-            {...props.a11y}
-            data-testid="carousel"
-            tabIndex={0}
-            {...(props.useArrowKeys ? { onKeyDown: handleOnKeyDown } : {})}
-            className={`${styles.carouselBase} ${props.className}`}
-        >
+        <div css={styles}>
             {showArrow.left && (
                 <div onClick={() => slide(SlideDirection.Left)}>
                     {props.leftArrow ?? <Arrow direction="left" />}
@@ -236,3 +181,7 @@ export const Carousel: FunctionComponent<CarouselProps> = (userProps: CarouselPr
         </div>
     );
 };
+
+const styles = css`
+    display: flex;
+`

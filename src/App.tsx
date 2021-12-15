@@ -10,6 +10,7 @@ import DocsPage from './pages/docs'
 import RecipesPage from './pages/samples/recipes'
 import ResizablePage from './pages/samples/resizable'
 import ToasterPage from './pages/samples/toaster'
+import CarouselPage from './pages/samples/carousel'
 
 export default function App() {
 
@@ -22,6 +23,7 @@ export default function App() {
                         <Route path={'/samples/simple-api'} element={<RecipesPage/>}/>
                         <Route path={'/samples/resizable'} element={<ResizablePage/>}/>
                         <Route path={'/samples/toaster'} element={<ToasterPage/>}/>
+                        <Route path={'/samples/carousel'} element={<CarouselPage/>}/>
                         <Route path={'/docs'} element={<DocsPage/>}/>
                         <Route path={'*'} element={<ErrorPage/>}/>
                     </Routes>

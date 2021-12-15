@@ -1,35 +1,32 @@
-import React, {
+/** @jsx jsx */
+import {css, jsx} from '@emotion/react'
+import {
     FunctionComponent,
-    useCallback,
     useState,
     MouseEvent,
     TouchEvent,
 } from 'react';
 import { Item, SlideDirection } from './types';
-import { getPageX } from './helpers';
-import {useWindowWidthChange} from '../../utils/hooks'
-import styles from '../../styles/styles.module.css';
+
+export interface ItemProviderProps {
+    items: Item[];
+    show: number;
+    slide: number;
+    widthCallBack: (width: number) => void;
+    dragCallback: (transform: number) => void;
+    slideCallback: (direction: SlideDirection) => void;
+    transition: number;
+    transform: number;
+    swiping: boolean;
+    swipeOn: number;
+    responsive: boolean;
+    infinite: boolean;
+}
 
 export const ItemProvider: FunctionComponent<ItemProviderProps> = (
     props: ItemProviderProps,
 ) => {
-    const [width, setWidth] = useState(200);
-    const ref = useCallback(
-        (node) => {
-            if (node !== null) {
-                const calculated = node.getBoundingClientRect().width / props.show;
-                setWidth(calculated);
-                props.widthCallBack(calculated);
-            }
-        },
-        [width],
-    );
-
-    // tslint:disable-next-line: no-unused-expression
-    props.responsive &&
-    useWindowWidthChange((change: number) => {
-        setWidth(width - change);
-    });
+    const width = 100
     const [drag, setDrag] = useState({
         initial: props.transform,
         start: 0,
@@ -43,7 +40,6 @@ export const ItemProvider: FunctionComponent<ItemProviderProps> = (
         setDrag({
             ...drag,
             isDown: true,
-            start: getPageX(e),
             initial: props.transform,
             finished: false,
         });
@@ -74,8 +70,7 @@ export const ItemProvider: FunctionComponent<ItemProviderProps> = (
         if (!drag.isDown) {
             return;
         }
-        const pos = getPageX(e);
-        setDrag({ ...drag, drag: drag.start - pos, pointers: false });
+        setDrag({ ...drag, drag: drag.start, pointers: false });
     };
     const swipeProps = props.swiping
         ? {
@@ -91,11 +86,10 @@ export const ItemProvider: FunctionComponent<ItemProviderProps> = (
         : {};
 
     return (
-        <div ref={ref} className={styles.itemProvider}>
+        <div css={styles}>
             <div
-                data-testid="trackList"
+                className="list-container"
                 {...swipeProps}
-                className={styles.itemTracker}
                 style={{
                     transform: `translateX(${props.transform - drag.drag}px)`,
                     transition: `transform ${props.transition}s ease 0s`,
@@ -106,7 +100,6 @@ export const ItemProvider: FunctionComponent<ItemProviderProps> = (
                     <div
                         key={i}
                         style={{ width, pointerEvents: drag.pointers ? 'all' : 'none' }}
-                        className={styles.itemContainer}
                     >
                         {item}
                     </div>
@@ -116,17 +109,12 @@ export const ItemProvider: FunctionComponent<ItemProviderProps> = (
     );
 };
 
-export interface ItemProviderProps {
-    items: Item[];
-    show: number;
-    slide: number;
-    widthCallBack: (width: number) => void;
-    dragCallback: (transform: number) => void;
-    slideCallback: (direction: SlideDirection) => void;
-    transition: number;
-    transform: number;
-    swiping: boolean;
-    swipeOn: number;
-    responsive: boolean;
-    infinite: boolean;
-}
+const styles = css`
+  position: relative;
+  overflow: hidden;
+  background-color: darkcyan;
+  
+  .list-container{
+    display: flex;
+  }
+`

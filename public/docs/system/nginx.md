@@ -4,7 +4,7 @@
 #### Nginx Configuration
 - go to etc/nginx/site-available
 - make a config file with domain name you are going to add.
-```
+```dotenv
 server {
     listen 443 ssl http2;
     listen [::]:443 ssl http2;

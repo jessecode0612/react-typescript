@@ -10,6 +10,6 @@ export const useWindowWidthChange = (callBack: (changed: number) => any) => {
         };
         window.addEventListener('resize', update);
         return () => window.removeEventListener('resize', update);
-    }, []);
+    }, [callBack, windowWidth]);
     return;
 };

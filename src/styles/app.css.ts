@@ -1158,7 +1158,13 @@ export default css`
   .p-0 {
     padding: 0 !important;
   }
-
+  .p-1 {
+    padding: ${theme.spacing[1]}px;
+  }
+  .p-2 {
+    padding: ${theme.spacing[2]}px;
+  }
+  
   .py-1 {
     padding-top: ${theme.spacing[1]}px;
     padding-bottom: ${theme.spacing[1]}px;
@@ -1175,5 +1181,9 @@ export default css`
 
   .pb-2 {
     padding-bottom: ${theme.spacing[2]}px;
+  }
+  
+  .pr-2 {
+    padding-right: ${theme.spacing[2]}px;
   }
 `

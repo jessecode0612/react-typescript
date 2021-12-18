@@ -32,7 +32,7 @@ npm manifest:
     "version": "1.0.0",
     "description": "",
     "keywords": [],
-    "main": "src/index.tsx",
+    "main": "src/index.js",
     "license": "MIT",
     "homepage": "https://bhusan.herokuapp.com",
     "scripts": {

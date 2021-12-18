@@ -33,7 +33,7 @@ Created with CodeSandbox
 |   |   |- Audio
 |   |   |   |- AudioPlayer
 |   |   |   |- AudioContext
-|   |   |   |- index.tsx
+|   |   |   |- index.js
 |   |   |   |- Process
 |   |   |   |- RecordButton
 |   |   |   |- Recorder
@@ -64,9 +64,9 @@ Created with CodeSandbox
 |       |- actions
 |       |- reducers
 |       |   |- appReducer.ts
-|       |   |- index.tsx
+|       |   |- index.js
 |       |
-|       |- index.tsx
+|       |- index.js
 |
 |- tsconfig.json
 |- package.jsong

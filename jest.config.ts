@@ -1,12 +1,11 @@
 import { defaults } from 'ts-jest/presets';
-module.exports = {
+export default {
   rootDir: '.',
-  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
+  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node', 'd.ts'],
   verbose: true,
   transform: {
     ...defaults.transform
   },
-  transformIgnorePatterns: ['/node_modules/(?!(react-markdown)/)'],
   moduleNameMapper: {
     '.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$': 'identity-obj-proxy'
   },

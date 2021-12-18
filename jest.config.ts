@@ -2,7 +2,6 @@ import { defaults } from 'ts-jest/presets';
 module.exports = {
   rootDir: '.',
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
-  collectCoverage: true,
   verbose: true,
   transform: {
     ...defaults.transform

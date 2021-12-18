@@ -12,7 +12,7 @@ export default {
   MOBILE_WIDTH,
   colors: {
     primary: '#0103f3',
-    primaryLight: '#7D7EB9',
+    primaryLight: 'rgba(1,3,243,0.42)',
     primaryLighter: '#dddded',
     primaryDark: '#03059f',
     secondary: '#f7f6f3',
@@ -22,7 +22,7 @@ export default {
     textLight: '#373941',
     header: '#2c363f',
 
-    mainBackground: '#ffffff',
+    mainBackground: '#f7f7f7',
     codeBackground: '#dddded',
 
     buttonBackground: '#0103f3',

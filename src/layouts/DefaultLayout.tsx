@@ -15,8 +15,6 @@ const DefaultLayout = ({ children, header = true }: AuxProps) => {
       {header && <Header />}
       <div
         style={{
-          backgroundColor: '#f7f7f7',
-          minHeight: 'calc(100% - 50px)',
           marginTop: 18
         }}
       >

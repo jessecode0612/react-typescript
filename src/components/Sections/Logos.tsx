@@ -1,11 +1,24 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
-import { Carousel } from 'react-responsive-carousel';
+import Slider from 'react-slick';
+import { useScreen } from '../../utils/hooks';
 
 export default function Logos() {
+  const { width } = useScreen();
+
+  const slidesToShow = Math.floor(width / 180);
+
+  const settings = {
+    dots: false,
+    slidesToShow: slidesToShow || 1,
+    rows: 1,
+    autoplay: true,
+    swipeToSlide: true
+  };
+
   return (
     <div css={styles} className="container">
-      <Carousel autoPlay={true} centerMode={true} centerSlidePercentage={10} interval={3000} infiniteLoop={true} showIndicators={false} showThumbs={false} selectedItem={4}>
+      <Slider {...settings}>
         <div className="carousel-item">
           <img src="https://lovecoding714.site/assets_front/img/skills/laravel.png" alt="Laravel" />
         </div>
@@ -39,7 +52,7 @@ export default function Logos() {
         <div className="carousel-item">
           <img src="/images/logos/swift.png" alt="MongoDB" />
         </div>
-      </Carousel>
+      </Slider>
     </div>
   );
 }
@@ -59,6 +72,7 @@ const styles = css`
       width: 100%;
       height: 100%;
       object-fit: contain;
+      margin: auto;
     }
   }
 `;

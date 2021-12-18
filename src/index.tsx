@@ -10,7 +10,8 @@ import App from './App';
 import { Global } from '@emotion/react';
 import sprite from './styles/svg-sprite';
 import appStyles from './styles/app.css';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(

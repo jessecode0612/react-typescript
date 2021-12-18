@@ -131,8 +131,11 @@ const styles = css`
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding-left: ${theme.spacing[2]}px;
-        padding-right: ${theme.spacing[2]}px;
+        margin-left: ${theme.spacing[1]}px;
+        padding-left: ${theme.spacing[1]}px;
+        margin-right: ${theme.spacing[1]}px;
+        padding-right: ${theme.spacing[1]}px;
+        border-radius: ${theme.styles.borderRadius};
         line-height: 40px;
 
         &:hover {

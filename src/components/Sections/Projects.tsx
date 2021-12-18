@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
 import theme from '../../styles/theme';
-import projects from '../../assets/data/projects';
+import projects from '../../data/projects';
 
 export default function Projects() {
   return (

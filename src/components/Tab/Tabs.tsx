@@ -1,63 +1,51 @@
 /** @jsx jsx */
-import {css, jsx} from '@emotion/react'
-import {ReactElement, useState} from "react"
-import theme from '../../styles/theme'
+import { css, jsx } from '@emotion/react';
+import { ReactElement, useState } from 'react';
+import theme from '../../styles/theme';
 
 type Props = {
-    title?: string
-    activeTab?: number
-    children: ReactElement[]
-}
+  title?: string;
+  activeTab?: number;
+  children: ReactElement[];
+};
 
-export const Tabs: React.FC<Props> = (
-    {
-        children,
-        title,
-        activeTab = 0
-    }
-) => {
+export const Tabs: React.FC<Props> = ({ children, title, activeTab = 0 }) => {
+  const [activeIndex, setActiveIndex] = useState<number>(activeTab);
 
-    const [activeIndex, setActiveIndex] = useState<number>(activeTab)
-
-    return (
-        <div css={styles}>
-            {title && <h3>{title}</h3>}
-            <ul data-acitive="50px">
-                {children.map((item, index) => (
-                    <div
-                        className="tab-header-item"
-                        key={index.toString()}
-                        data-active={activeIndex === index}
-                        onClick={() => {
-                            setActiveIndex(index)
-                        }}
-                    >
-                        <strong>
-                            {item.props.title}
-                        </strong>
-                    </div>
-                ))}
-                <div
-                    className="active-indicator"
-                    style={{transform: `translateX(${80 * activeIndex}px)`}}
-                />
-            </ul>
-            <div
-                className="tab-content"
-                style={{
-                    transform: `translateX(-${100/ children.length * activeIndex}%)`,
-                    width: `${children.length * 100}%`
-                }}
-            >
-                {children.map((item, index) => (
-                    <div className="w-100" key={index.toString()} >
-                        {item}
-                    </div>
-                ))}
-            </div>
-        </div>
-    )
-}
+  return (
+    <div css={styles}>
+      {title && <h3>{title}</h3>}
+      <ul data-acitive="50px">
+        {children.map((item, index) => (
+          <div
+            className="tab-header-item"
+            key={index.toString()}
+            data-active={activeIndex === index}
+            onClick={() => {
+              setActiveIndex(index);
+            }}
+          >
+            <strong>{item.props.title}</strong>
+          </div>
+        ))}
+        <div className="active-indicator" style={{ transform: `translateX(${80 * activeIndex}px)` }} />
+      </ul>
+      <div
+        className="tab-content"
+        style={{
+          transform: `translateX(-${(100 / children.length) * activeIndex}%)`,
+          width: `${children.length * 100}%`
+        }}
+      >
+        {children.map((item, index) => (
+          <div className="w-100" key={index.toString()}>
+            {item}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const styles = css`
   width: 100%;
@@ -72,16 +60,16 @@ const styles = css`
     flex-direction: row;
     padding: 0;
     width: 100%;
-    border-bottom: ${theme.borderDefault};
+    border-bottom: ${theme.styles.border};
     position: relative;
 
     .active-indicator {
       position: absolute;
       width: var(--tab-width);
       height: 2px;
-      background-color: ${theme.primary};
+      background-color: ${theme.colors.primary};
       bottom: -1px;
-      transition: transform .3s;
+      transition: transform 0.3s;
     }
 
     .tab-header-item {
@@ -96,8 +84,8 @@ const styles = css`
       &:hover {
         background-color: #00000012;
 
-        &[data-active="true"] {
-          background-color: ${theme.primary}12;
+        &[data-active='true'] {
+          background-color: ${theme.colors.primary}12;
         }
       }
     }
@@ -106,9 +94,9 @@ const styles = css`
       list-style: none;
     }
   }
-  
-  .tab-content{
+
+  .tab-content {
     display: flex;
-    transition: transform .45s;
+    transition: transform 0.45s;
   }
-`
+`;

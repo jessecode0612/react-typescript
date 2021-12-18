@@ -1,1 +1,1 @@
-export * from './appActions'
+export * from './appActions';

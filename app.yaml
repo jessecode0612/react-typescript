@@ -2,7 +2,7 @@ runtime: nodejs
 env: flex
 service: react-typescript-example
 readiness_check:
-  path: "/readiness_check"
+  path: '/readiness_check'
   check_interval_sec: 5
   timeout_sec: 4
   failure_threshold: 2

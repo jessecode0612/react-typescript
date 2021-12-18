@@ -1,80 +1,74 @@
 /** @jsx jsx */
-import {jsx, css} from '@emotion/react'
-import {
-    CheckmarkIcon,
-    InfoIcon,
-    SpinIcon,
-    ThumbsUpIcon,
-    CloseIcon
-} from '../../components/Icons'
+import { jsx, css } from '@emotion/react';
+import { CheckmarkIcon, InfoIcon, SpinIcon, ThumbsUpIcon, CloseIcon } from '../../components/Icons';
 
-import DefaultLayout from '../../layouts/DefaultLayout'
-import ToastManager from '../../components/Toast/ToastManager'
+import DefaultLayout from '../../layouts/DefaultLayout';
+import ToastManager from '../../components/Toast/ToastManager';
 
 export default function Toaster() {
-    const defaultToast = () => {
-        ToastManager.show({
-            content: 'This is default toast',
-            icon: <SpinIcon />
-        })
-    }
+  const defaultToast = () => {
+    ToastManager.show({
+      content: 'This is default toast',
+      icon: <SpinIcon />
+    });
+  };
 
-    const successToast = () => {
-        ToastManager.success({
-            content: 'This is success toast',
-            icon: <CheckmarkIcon />
-        })
-    }
+  const successToast = () => {
+    ToastManager.success({
+      content: 'This is success toast',
+      icon: <CheckmarkIcon />
+    });
+  };
 
-    const errorToast = () => {
-        ToastManager.error({
-            content: 'This is error toast',
-            icon: <CloseIcon />
-        })
-    }
+  const errorToast = () => {
+    ToastManager.error({
+      content: 'This is error toast',
+      icon: <CloseIcon />
+    });
+  };
 
-    const infoToast = () => {
-        ToastManager.info({
-            content: 'This is information toast',
-            icon: <InfoIcon />
-        })
-    }
+  const infoToast = () => {
+    ToastManager.info({
+      content: 'This is information toast',
+      icon: <InfoIcon />
+    });
+  };
 
-    const warningToast = () => {
-        ToastManager.warning({
-            content: 'This is warning toast',
-            icon: <ThumbsUpIcon />
-        })
-    }
+  const warningToast = () => {
+    ToastManager.warning({
+      content: 'This is warning toast',
+      icon: <ThumbsUpIcon />
+    });
+  };
 
-    const clearToast = () => {
-        ToastManager.clear()
-    }
+  const clearToast = () => {
+    ToastManager.clear();
+  };
 
-    return (
-        <DefaultLayout header={false}>
-            <div className="container flex-center" css={style}>
-                <button className="default" onClick={defaultToast}>
-                    Default Toast
-                </button>
-                <button className="success" onClick={successToast}>
-                    Success Toast
-                </button>
-                <button className="error" onClick={errorToast}>
-                    Error Toast
-                </button>
-                <button className="warning" onClick={warningToast}>
-                    Warning Toast
-                </button>
-                <button className="info" onClick={infoToast}>
-                    Info Toast
-                </button>
-                <button className="clear" onClick={clearToast}>
-                    Clear Toast
-                </button>
-            </div>
-        </DefaultLayout>
-    )
+  return (
+    <DefaultLayout header={false}>
+      <div className="container flex-center" css={style}>
+        <button className="default" onClick={defaultToast}>
+          Default Toast
+        </button>
+        <button className="success" onClick={successToast}>
+          Success Toast
+        </button>
+        <button className="error" onClick={errorToast}>
+          Error Toast
+        </button>
+        <button className="warning" onClick={warningToast}>
+          Warning Toast
+        </button>
+        <button className="info" onClick={infoToast}>
+          Info Toast
+        </button>
+        <button className="clear" onClick={clearToast}>
+          Clear Toast
+        </button>
+      </div>
+    </DefaultLayout>
+  );
 }
 
 const style = css`
@@ -112,4 +106,4 @@ const style = css`
       margin-top: 100px;
     }
   }
-`
+`;

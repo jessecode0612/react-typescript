@@ -1,13 +1,8 @@
-import React from "react";
-import DefaultLayout from "../layouts/DefaultLayout";
+import React from 'react';
+import DefaultLayout from '../layouts/DefaultLayout';
 
 const WebsocketPage = () => {
-
-    return (
-        <DefaultLayout>
-
-        </DefaultLayout>
-    )
-}
+  return <DefaultLayout />;
+};
 
 export default WebsocketPage;

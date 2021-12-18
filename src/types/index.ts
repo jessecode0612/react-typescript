@@ -1,4 +1,4 @@
 export interface InputOnChangeProps {
-  name?: string
-  value: string | number
+  name?: string;
+  value: string | number;
 }

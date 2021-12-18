@@ -1,11 +1,11 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/react'
-import { SVGAttributes } from 'react'
-import { SerializedStyles, css } from '@emotion/react'
+import { jsx } from '@emotion/react';
+import { SVGAttributes } from 'react';
+import { SerializedStyles, css } from '@emotion/react';
 
 interface Props extends SVGAttributes<SVGElement> {
-  icon: string
-  extraCss?: SerializedStyles | SerializedStyles[]
+  icon: string;
+  extraCss?: SerializedStyles | SerializedStyles[];
 }
 
 /**
@@ -14,15 +14,10 @@ interface Props extends SVGAttributes<SVGElement> {
  */
 export default function SVGIcon({ icon, extraCss, ...props }: Props) {
   return (
-    <svg
-      css={[styles.icon].concat(extraCss!)}
-      aria-hidden="true"
-      role="presentation"
-      {...props}
-    >
+    <svg css={[styles.icon].concat(extraCss!)} aria-hidden="true" role="presentation" {...props}>
       <use xlinkHref={icon} />
     </svg>
-  )
+  );
 }
 
 const styles = {
@@ -31,4 +26,4 @@ const styles = {
     line-height: 0;
     flex-shrink: 0;
   `
-}
+};

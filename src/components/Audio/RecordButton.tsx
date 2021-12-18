@@ -1,37 +1,27 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/react'
-import { HTMLAttributes } from 'react'
-import { css, keyframes } from '@emotion/react'
-import * as theme from '../../styles/theme'
-import { RefreshIcon } from '../Icons'
+import { jsx } from '@emotion/react';
+import { HTMLAttributes } from 'react';
+import { css, keyframes } from '@emotion/react';
+import theme from '../../styles/theme';
+import { RefreshIcon } from '../Icons';
 
 interface RecordButtonProps extends HTMLAttributes<HTMLElement> {
-  size?: number
-  recording?: boolean
-  reset?: boolean
+  size?: number;
+  recording?: boolean;
+  reset?: boolean;
 }
 
-export function RecordButton({
-  size = 40,
-  recording = false,
-  reset = false,
-  ...rest
-}: RecordButtonProps) {
+export function RecordButton({ size = 40, recording = false, reset = false, ...rest }: RecordButtonProps) {
   const containerStyle = {
     width: size,
     height: size
-  }
+  };
 
   return (
-    <div
-      css={styles}
-      style={containerStyle}
-      {...rest}
-      data-redording={recording}
-    >
+    <div css={styles} style={containerStyle} {...rest} data-redording={recording}>
       {reset && !recording ? <RefreshIcon /> : <div />}
     </div>
-  )
+  );
 }
 
 const recordingAnimation = keyframes`
@@ -41,14 +31,14 @@ const recordingAnimation = keyframes`
   to {
     transform: scale(1);
   }
-`
+`;
 
 const styles = css`
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 100%;
-  border: ${theme.borderDefault};
+  border: ${theme};
   cursor: pointer;
 
   div {
@@ -61,7 +51,7 @@ const styles = css`
   .icon {
     width: 24px;
     height: 24px;
-    fill: ${theme.primary};
+    fill: ${theme.colors.primary};
   }
 
   &:hover {
@@ -79,8 +69,7 @@ const styles = css`
   }
 
   &[data-redording='true'] {
-    animation: ${recordingAnimation} 0.45s infinite alternate
-      ${theme.transitionEasing};
+    animation: ${recordingAnimation} 0.45s infinite alternate ${theme.styles.transitionEasing};
     div {
       border-radius: 2px;
       background-color: transparent;
@@ -96,4 +85,4 @@ const styles = css`
       background-color: #c63a00;
     }
   }
-`
+`;

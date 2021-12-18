@@ -1,33 +1,30 @@
 /** @jsx jsx */
-import {css, jsx} from '@emotion/react'
-import theme from '../../styles/theme'
-import {useScreen} from '../../utils/hooks'
-
-const bannerImage = require('../../assets/images/banner.jpg')
-
+import { css, jsx } from '@emotion/react';
+import theme from '../../styles/theme';
+import { useScreen } from '../../utils/hooks';
 
 export default function Hero() {
-    const {isMobile} = useScreen()
-    return (
-        <div css={styles} id="home">
-            <div className="container">
-                <h4>Bhusan Paudel</h4>
-                <h2>Full Stack Software Engineer</h2>
-                <p hidden={isMobile}>
-                    I design, develop, deploy, and maintain custom web and client applications using the latest technologies and industry standards.
-                    <br/>
-                    Working closely with our customers during the design and testing phases ensure a result everyone is proud of.
-                </p>
-            </div>
-        </div>
-    )
+  const { isMobile } = useScreen();
+  return (
+    <div css={styles} id="home">
+      <div className="container">
+        <h4>Bhusan Paudel</h4>
+        <h2>Full Stack Software Engineer</h2>
+        <p hidden={isMobile}>
+          I design, develop, deploy, and maintain custom web and client applications using the latest technologies and industry standards.
+          <br />
+          Working closely with our customers during the design and testing phases ensure a result everyone is proud of.
+        </p>
+      </div>
+    </div>
+  );
 }
 
 const styles = css`
   width: 100%;
   margin: auto;
 
-  background-image: url("${bannerImage}");
+  background-image: url(/images/banner.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right;
@@ -40,4 +37,4 @@ const styles = css`
   ${theme.MOBILE_MEDIA_QUERY} {
     min-height: 350px;
   }
-`
+`;

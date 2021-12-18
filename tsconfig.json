@@ -1,16 +1,8 @@
 {
   "compilerOptions": {
     "outDir": "build/dist",
-    "module": "esnext",
     "target": "es6",
-    "lib": [
-      "dom",
-      "es2017",
-      "DOM.Iterable",
-      "ScriptHost",
-      "ES2016.Array.Include",
-      "es6"
-    ],
+    "lib": ["dom", "es2017", "DOM.Iterable", "ScriptHost", "ES2016.Array.Include", "es6"],
     "sourceMap": true,
     "allowJs": true,
     "jsx": "react",
@@ -32,26 +24,15 @@
     "noEmit": true,
     "sourceRoot": ".",
     "baseUrl": ".",
-    "types": [
-      "react",
-      "react-dom"
-    ]
+    "types": ["react", "react-dom", "jest"],
+    "module": "esnext"
   },
-  "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "src"
-  ],
+  "include": ["src", "tests", "jest.config.ts"],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
     },
-    "exclude": [
-      "src"
-    ],
-    "include": [
-      "server"
-    ]
+    "exclude": ["src"],
+    "include": ["server"]
   }
 }

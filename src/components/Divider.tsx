@@ -1,17 +1,12 @@
-import React, { HTMLAttributes } from 'react'
+import React, { HTMLAttributes } from 'react';
 
 interface Props extends HTMLAttributes<HTMLElement> {
-  width?: string
-  height?: string
-  color?: string
+  width?: string;
+  height?: string;
+  color?: string;
 }
 
-const Divider = ({
-  width = '100%',
-  height = '1px',
-  color = '#00000012',
-  ...rest
-}: Props) => {
+const Divider = ({ width = '100%', height = '1px', color = '#00000012', ...rest }: Props) => {
   return (
     <div
       style={{
@@ -21,7 +16,7 @@ const Divider = ({
       }}
       {...rest}
     />
-  )
-}
+  );
+};
 
-export default Divider
+export default Divider;

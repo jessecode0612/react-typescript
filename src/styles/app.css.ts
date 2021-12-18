@@ -1,75 +1,16 @@
-import * as theme from './theme'
+import theme from './theme';
 
-import { css } from '@emotion/react'
+import { css } from '@emotion/react';
 
 export default css`
-  .flex-row,
-  .flex-column,
-  .flex-center,
-  .flex-left-center,
-  .flex-top-center,
-  .flex-end,
-  .flex-between-center {
-    display: flex;
-  }
-
-  .flex-end {
-    justify-content: flex-end;
-  }
-
-  .flex-row {
-    flex-direction: row;
-  }
-
-  .flex-column {
-    flex-direction: column;
-  }
-
-  .flex-center {
-    justify-content: center;
-    align-items: center;
-  }
-
-  .flex-left-center {
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-  }
-
-  .flex-top-center {
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-  }
-
-  .flex-between-center {
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .flex-center,
-  .flex-top-center,
-  .text-center {
-    text-align: center;
-  }
-
-  .absolute-fill {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
-
-  html {
+    html {
     height: 100%;
     min-width: 300px;
     box-sizing: border-box;
     overflow-y: auto;
-    background-color: ${theme.mainBackground};
+    background-color: ${theme.colors.mainBackground};
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    background-color: #f9f9f9;
   }
 
   * {
@@ -82,7 +23,7 @@ export default css`
 
   body {
     font: 400 14px/1.45 Roboto, Georgia, 'Times New Roman', Times, serif;
-    color: ${theme.text};
+    color: ${theme.colors.text};
     letter-spacing: 0.03em;
     margin: 0;
   }
@@ -98,12 +39,12 @@ export default css`
     height: 100%;
     min-height: 100vh;
   }
-
-  ::selection {
-    color: ${theme.textDarkBg};
-    background-color: ${theme.primary};
+  
+  a{
+    color: ${theme.colors.text};
+    text-decoration: none;
   }
-
+  
   p {
     margin-top: 0;
   }
@@ -192,112 +133,47 @@ export default css`
     color: red;
   }
 
-  text-green {
+  .text-green {
     color: green;
   }
-
-  a {
-    color: #555555;
-    font-weight: 400;
-    text-decoration: none;
-    text-decoration-thickness: 0.1em;
-    text-underline-offset: 2px;
-    transition: color 0.1s ${theme.transitionEasing},
-    text-decoration-color 0.1s ${theme.transitionEasing};
-
-    .icon {
-      fill: ${theme.link};
-
-      transition: fill 0.1s ${theme.transitionEasing},
-      stroke 0.1s ${theme.transitionEasing};
-    }
-
-    &:visited {
-      color: ${theme.linkVisited};
-      text-decoration-color: ${theme.linkVisited};
-
-      .icon {
-        fill: ${theme.linkVisited};
-      }
-    }
-
-    &:hover {
-      color: ${theme.linkHover};
-      text-decoration-color: ${theme.linkHover};
-
-      .icon {
-        fill: ${theme.linkHover};
-      }
-    }
-
-    &:active {
-      color: ${theme.linkActive};
-      text-decoration-color: ${theme.linkActive};
-
-      .icon {
-        fill: ${theme.linkActive};
-      }
-    }
-
-    &.link-secondary {
-      color: ${theme.linkSecondary};
-
-      .icon {
-        fill: ${theme.linkSecondary};
-        transition: fill 0.1s ${theme.transitionEasing};
-      }
-
-      &:visited {
-        color: ${theme.linkSecondaryVisited};
-
-        .icon {
-          fill: ${theme.linkSecondaryVisited};
-        }
-      }
-
-      &:hover {
-        color: ${theme.linkSecondaryHover};
-
-        .icon {
-          fill: ${theme.linkSecondaryHover};
-        }
-      }
-
-      &:active {
-        color: ${theme.linkSecondaryActive};
-
-        .icon {
-          fill: ${theme.linkSecondaryActive};
-        }
-      }
-    }
-  }
-
+  
   .link-with-icon {
     display: flex;
     flex-direction: row;
     align-items: center;
     white-space: nowrap;
   }
-
-  h1 a {
-    color: ${theme.text};
-  }
-
+  
   img,
   form {
     margin: 0;
   }
 
-  td,
-  th,
-  th:first-of-type,
-  td:first-of-type,
-  th:last-of-type,
-  td:last-of-type {
-    padding-left: 10px;
-    padding-right: 10px;
+  // Table
+  table{
+    border-collapse: collapse;
+    margin-bottom: 15px;
+    th{
+      height: 40px;
+      background-color: white;
+      color: ${theme.colors.primary};
+    }
+    
+    td,
+    th,
+    th:first-of-type,
+    td:first-of-type,
+    th:last-of-type,
+    td:last-of-type {
+      padding-left: 10px;
+      padding-right: 10px;
+      border: solid 1px black;
+    }
+    tr:nth-of-type(odd) {
+      background-color: ${theme.colors.codeBackground};
+    }
   }
+
 
   figcaption {
     font-size: 0.9rem;
@@ -307,39 +183,7 @@ export default css`
     margin: 0 auto;
     text-align: center;
   }
-
-  blockquote {
-    border-left: 6px solid ${theme.primaryLight};
-    font-size: 24px;
-    margin: 0;
-    padding: 5px 20px;
-
-    * {
-      margin: 0;
-    }
-  }
-
-  .blue {
-    color: ${theme.primary} !important;
-  }
-
-  .yellow {
-    color: ${theme.yellow};
-  }
-
-  .select-label {
-    background-color: white;
-    color: ${theme.header};
-  }
-
-  :focus {
-    outline: ${theme.primary} solid 1px;
-  }
-
-  .gatsby-resp-image-link {
-    background-image: none;
-  }
-
+  
   // get gatsby images to show in IE11
   // see https://github.com/gatsbyjs/gatsby/issues/30053
   .object-fit-polyfill[style] {
@@ -355,6 +199,7 @@ export default css`
     font-weight: 700;
   }
 
+  // Cod styles
   code[class*='language-'],
   pre[class*='language-'] {
     font-size: 16px;
@@ -366,8 +211,8 @@ export default css`
   }
 
   code:not(pre > code) {
-    background-color: ${theme.codeBackground};
-    border: 1px solid ${theme.mainBorder};
+    background-color: ${theme.colors.codeBackground};
+    border: ${theme.styles.border};
     border-radius: 7px;
     font-weight: 700;
     padding: 0 5px;
@@ -389,10 +234,6 @@ export default css`
     font-size: 30px;
   }
 
-  tr:nth-of-type(2n) {
-    background-color: ${theme.codeBackground};
-  }
-
   .btn {
     position: relative;
     height: 34px;
@@ -408,43 +249,23 @@ export default css`
     text-align: center;
     flex-shrink: 0;
 
-    background-color: ${theme.buttonBackground};
-    border: 1px solid ${theme.buttonBackground};
+    background-color: ${theme.colors.buttonBackground};
+    border: 1px solid ${theme.colors.buttonBackground};
     border-radius: 24px;
     white-space: nowrap;
     cursor: pointer;
     text-decoration: none;
     user-select: none;
-    transition: background-color 0.1s ${theme.transitionEasing},
-    border-color 0.1s ${theme.transitionEasing},
-    color 0.1s ${theme.transitionEasing},
-    opacity 0.2s ${theme.transitionEasing};
-
-    .icon {
-      fill: ${theme.textDarkBg};
-      transition: fill 0.1s ${theme.transitionEasing};
+    transition: background-color 0.1s ${theme.styles.transitionEasing},
+    border-color 0.1s ${theme.styles.transitionEasing},
+    color 0.1s ${theme.styles.transitionEasing},
+    opacity 0.2s ${theme.styles.transitionEasing};
+    color: white;
+    
+    .icon{
+      fill: white;
     }
-
-    &,
-    &:visited {
-      color: ${theme.textDarkBg};
-    }
-
-    &:hover:not([disabled]):not([aria-disabled='true']),
-    &:active:not([disabled]):not([aria-disabled='true']) {
-      background-color: ${theme.buttonBackgroundHover};
-      border-color: ${theme.buttonBackgroundHover};
-      color: ${theme.textDarkBg};
-
-      .icon {
-        fill: ${theme.textDarkBg};
-      }
-    }
-
-    &:active:not([disabled]):not([aria-disabled='true']) {
-      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.8);
-    }
-
+    
     &[disabled],
     &[aria-disabled='true'],
     &.btn-submitting {
@@ -452,44 +273,22 @@ export default css`
       cursor: default;
       pointer-events: none;
     }
-
-    &.btn-transparent {
-      background-color: transparent;
-      border-color: ${theme.primary};
-      color: ${theme.primary};
-
-      .icon {
-        fill: ${theme.primary};
-      }
-
-      &:hover:not([disabled]):not([aria-disabled='true']),
-      &:active:not([disabled]):not([aria-disabled='true']),
-      &.btn-submitting {
-        background-color: ${theme.primary};
-        border-color: ${theme.primary};
-        color: white;
-
-        .icon {
-          fill: white;
-        }
-      }
-    }
-
+    
     &.btn-secondary {
       background-color: white;
-      border-color: ${theme.primary};
-      color: ${theme.primary};
+      border-color: ${theme.colors.primary};
+      color: ${theme.colors.primary};
 
       .icon {
-        fill: ${theme.primary};
-        stroke: ${theme.primary};
+        fill: ${theme.colors.primary};
+        stroke: ${theme.colors.primary};
       }
 
       &:hover:not([disabled]):not([aria-disabled='true']),
       &:active:not([disabled]):not([aria-disabled='true']),
       &.btn-submitting {
-        background-color: ${theme.primary};
-        border-color: ${theme.primary};
+        background-color: ${theme.colors.primary};
+        border-color: ${theme.colors.primary};
         color: white;
 
         .icon {
@@ -500,22 +299,22 @@ export default css`
 
     &.btn-secondary.btn-transparent {
       background-color: transparent;
-      border-color: ${theme.secondary};
-      color: ${theme.secondary};
+      border-color: ${theme.colors.secondary};
+      color: ${theme.colors.secondary};
 
       .icon {
-        fill: ${theme.secondary};
+        fill: ${theme.colors.secondary};
       }
 
       &:hover:not([disabled]):not([aria-disabled='true']),
       &:active:not([disabled]):not([aria-disabled='true']),
       &.btn-submitting {
-        background-color: ${theme.linkSecondaryHover};
-        border-color: ${theme.linkSecondaryHover};
-        color: ${theme.text};
+        background-color: ${theme.colors.linkSecondaryHover};
+        border-color: ${theme.colors.linkSecondaryHover};
+        color: ${theme.colors.text};
 
         .icon {
-          fill: ${theme.text};
+          fill: ${theme.colors.text};
         }
       }
     }
@@ -540,7 +339,7 @@ export default css`
       background: none;
       border: none;
       border-radius: 0;
-      color: ${theme.primary};
+      color: ${theme.colors.primary};
       padding: 5px 10px;
       height: auto;
 
@@ -549,7 +348,7 @@ export default css`
       &.btn-submitting {
         background: none;
         border: none;
-        color: ${theme.primaryDark};
+        color: ${theme.colors.primaryDark};
       }
     }
   }
@@ -575,7 +374,7 @@ export default css`
 
   .input {
     width: 100%;
-    border: 1px solid ${theme.mainBorder};
+    border: ${theme.styles.border}
     border-radius: 4px;
     background-color: white;
     padding-left: 10px;
@@ -593,18 +392,18 @@ export default css`
   }
 
   .warning {
-    color: ${theme.yellow};
+    color: ${theme.colors.yellow};
 
     &.input {
-      border-color: ${theme.yellow};
+      border-color: ${theme.colors.yellow};
     }
   }
 
   .error {
-    color: ${theme.error};
+    color: ${theme.colors.error};
 
     &.input {
-      border-color: ${theme.error};
+      border-color: ${theme.colors.error};
     }
   }
 
@@ -630,28 +429,7 @@ export default css`
       right: 0;
     }
   }
-
-  .dashed-border::before {
-    top: 0;
-    bottom: 0;
-    background: ${theme.dashedBorder} center center no-repeat;
-  }
-
-  .dashed-border-top::before,
-  .dashed-border-bottom::before {
-    height: 2px;
-    background: ${theme.dashedBorderHorizontal} top center no-repeat;
-  }
-
-  .dashed-border-top::before {
-    top: 0;
-  }
-
-  .dashed-border-bottom::before {
-    bottom: 0;
-    background-position: bottom center;
-  }
-
+  
   .columns {
     display: flex;
     flex-direction: column;
@@ -672,126 +450,6 @@ export default css`
     }
   }
 
-  html.dark-mode {
-    background-color: ${theme.mainBackgroundDark};
-
-    body,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    a,
-    a:visited,
-    h1 a {
-      color: ${theme.textDarkBg};
-    }
-
-    a {
-      .icon {
-        fill: ${theme.textDarkBg};
-      }
-
-      &:hover {
-        color: ${theme.linkDarkHover};
-
-        .icon {
-          fill: ${theme.linkDarkHover};
-        }
-      }
-
-      &:active {
-        color: ${theme.linkDarkActive};
-
-        .icon {
-          fill: ${theme.linkDarkActive};
-        }
-      }
-    }
-
-    a.content-link,
-    .privacy-text a {
-      color: ${theme.linkDark};
-      text-decoration-color: ${theme.linkDark};
-
-      .icon {
-        fill: ${theme.linkDark};
-      }
-
-      &:hover {
-        color: ${theme.linkDarkHover};
-        text-decoration-color: ${theme.linkDarkHover};
-
-        .icon {
-          fill: ${theme.linkDarkHover};
-        }
-      }
-
-      &:active {
-        color: ${theme.linkDarkActive};
-        text-decoration-color: ${theme.linkDarkActive};
-
-        .icon {
-          fill: ${theme.linkDarkActive};
-        }
-      }
-    }
-
-    .btn {
-      background-color: ${theme.buttonBackgroundDark};
-      border-color: ${theme.buttonBackgroundDark};
-
-      &,
-      &:visited {
-        color: ${theme.text};
-      }
-
-      .icon {
-        fill: ${theme.text};
-      }
-
-      &:hover:not([disabled]),
-      &:active:not([disabled]),
-      &.btn-submitting {
-        background-color: ${theme.buttonBackgroundDarkHover};
-        border-color: ${theme.buttonBackgroundDarkHover};
-        color: ${theme.textDarkBg};
-      }
-
-      &.btn-transparent {
-        background-color: transparent;
-        border-color: ${theme.buttonBackgroundDark};
-        color: ${theme.buttonBackgroundDark};
-
-        .icon {
-          fill: ${theme.buttonBackgroundDark};
-        }
-
-        &:hover:not([disabled]),
-        &:active:not([disabled]),
-        &.btn-submitting {
-          background-color: ${theme.buttonBackgroundDark};
-          border-color: ${theme.buttonBackgroundDark};
-          color: ${theme.text};
-
-          .icon {
-            fill: ${theme.text};
-          }
-        }
-      }
-    }
-
-    .select-label {
-      background-color: ${theme.stickyNavBackgroundDark};
-      color: ${theme.textDarkBg};
-    }
-
-    .dashed-border-top::before,
-    .dashed-border-bottom::before {
-      opacity: 0.5;
-    }
-  }
 
   ${theme.MIN_DEFAULT_MEDIA_QUERY} {
     h1 {
@@ -843,22 +501,64 @@ export default css`
     }
   }
 
-  ${theme.ieBreakpoint} {
-    .ie-fix,
-    .title,
-    p,
-    h1,
-    h2,
-    h3,
-    h4 {
-      width: 100%;
-    }
-
-    .input-wrap label {
-      width: 180px;
-    }
+  .flex-row,
+  .flex-column,
+  .flex-center,
+  .flex-left-center,
+  .flex-top-center,
+  .flex-end,
+  .flex-between-center {
+    display: flex;
   }
 
+  .flex-end {
+    justify-content: flex-end;
+  }
+
+  .flex-row {
+    flex-direction: row;
+  }
+
+  .flex-column {
+    flex-direction: column;
+  }
+
+  .flex-center {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .flex-left-center {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .flex-top-center {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .flex-between-center {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .flex-center,
+  .flex-top-center,
+  .text-center {
+    text-align: center;
+  }
+
+  .absolute-fill {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  
   // Layouts
   .container {
     padding: 12px;
@@ -1186,4 +886,13 @@ export default css`
   .pr-2 {
     padding-right: ${theme.spacing[2]}px;
   }
-`
+  
+  .position-sticky{
+    position: sticky;
+    top: 0;
+  }
+  
+  .bg-white{
+    background-color: white;
+  }
+`;

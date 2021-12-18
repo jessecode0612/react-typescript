@@ -1,113 +1,100 @@
 /** @jsx jsx */
-import {jsx} from '@emotion/react'
-import {useState} from 'react'
-import * as theme from '../../styles/theme'
+import { jsx } from '@emotion/react';
+import { useState } from 'react';
+import theme from '../../styles/theme';
 
-import {Link} from 'react-router-dom'
-import {css} from '@emotion/react'
-import Button from '../Button'
-import {useScreen} from '../../utils/hooks'
+import { Link } from 'react-router-dom';
+import { css } from '@emotion/react';
+import Button from '../Button';
+import { useScreen } from '../../utils/hooks';
 
-import {
-    AddCircleOutlineIcon,
-    MovingIcon,
-    HamburgerIcon,
-    ArrowNextIcon
-} from '../Icons'
-import Menu from '../Menu'
-import {useScroll} from '../../utils/hooks'
+import { AddCircleOutlineIcon, MovingIcon, HamburgerIcon, ArrowNextIcon } from '../Icons';
+import Menu from '../Menu';
+import { useScroll } from '../../utils/hooks';
 
 const menuList = [
-    {
-        name: 'Document',
-        path: '/docs'
-    },
-    {
-        name: 'Samples',
-        icon: <MovingIcon/>,
-        list: [
-            { name: 'Simple API', path: '/samples/simple-api', icon: <ArrowNextIcon/> },
-            { name: 'Resizable', path: '/samples/resizable', icon: <ArrowNextIcon/> },
-            { name: 'Toaster', path: '/samples/toaster', icon: <ArrowNextIcon/> },
-            { name: 'Carousel', path: '/samples/carousel', icon: <ArrowNextIcon/> },
-        ]
-    }
-]
+  {
+    name: 'Document',
+    path: '/docs'
+  },
+  {
+    name: 'Samples',
+    icon: <MovingIcon />,
+    list: [
+      { name: 'Simple API', path: '/samples/simple-api', icon: <ArrowNextIcon /> },
+      { name: 'Resizable', path: '/samples/resizable', icon: <ArrowNextIcon /> },
+      { name: 'Toaster', path: '/samples/toaster', icon: <ArrowNextIcon /> },
+      { name: 'Carousel', path: '/samples/carousel', icon: <ArrowNextIcon /> }
+    ]
+  }
+];
 
 export default function Header() {
-    const {isMobile, isDesktop} = useScreen()
-    const {top} = useScroll()
+  const { isMobile, isDesktop } = useScreen();
+  const { top } = useScroll();
 
-    const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
-    // determines if which mobile menu is opened for responsive only
-    const [activeMenu, setActiveMenu] = useState<string | undefined>(undefined)
+  // determines if which mobile menu is opened for responsive only
+  const [activeMenu, setActiveMenu] = useState<string | undefined>(undefined);
 
-    const toggleMobileMenu = () => {
-        setMobileMenuOpen((prevState) => !prevState)
-        setActiveMenu(undefined)
-    }
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen((prevState) => !prevState);
+    setActiveMenu(undefined);
+  };
 
-    const handleMenuClick = (menuName: string | undefined) => {
-        setActiveMenu(menuName)
-    }
+  const handleMenuClick = (menuName: string | undefined) => {
+    setActiveMenu(menuName);
+  };
 
-    return (
-        <header css={styles} data-background={top > 50}>
-            <div className="container header">
-                <div className="mobile-menu-toggle" onClick={toggleMobileMenu}>
-                    <HamburgerIcon/>
-                </div>
-                <Link className="logoWrap" to="/">
-                    <div className="logoWrap">
-                        <strong className="title" hidden={isMobile}>
-                            BP
-                        </strong>
-                    </div>
-                </Link>
-                <div className={(mobileMenuOpen ? 'open' : '') + " menuWrap"}>
-                    <div className={'close-menu-wrap'} hidden={isDesktop}>
-                        <strong className={'close-menu'} onClick={toggleMobileMenu}>
-                            Close
-                        </strong>
-                    </div>
+  return (
+    <header css={styles} data-background={top > 50}>
+      <div className="container header">
+        <div className="mobile-menu-toggle" onClick={toggleMobileMenu}>
+          <HamburgerIcon />
+        </div>
+        <Link className="logoWrap" to="/">
+          <div className="logoWrap">
+            <strong className="title" hidden={isMobile}>
+              BP
+            </strong>
+          </div>
+        </Link>
+        <div className={(mobileMenuOpen ? 'open' : '') + ' menuWrap'}>
+          <div className={'close-menu-wrap'} hidden={isDesktop}>
+            <strong className={'close-menu'} onClick={toggleMobileMenu}>
+              Close
+            </strong>
+          </div>
 
-                    <Menu
-                        menu={menuList}
-                        activeMenu={activeMenu}
-                        menuClick={handleMenuClick}
-                    />
+          <Menu menu={menuList} activeMenu={activeMenu} menuClick={handleMenuClick} />
 
-                    <Button
-                        transparent={isMobile}
-                        secondary={isMobile}
-                        className={'btn-create-new'}
-                    >
-                        <AddCircleOutlineIcon/>
-                        <span className="createButtonTitle">Get Started</span>
-                    </Button>
-                </div>
-            </div>
-        </header>
-    )
+          <Button transparent={isMobile} secondary={isMobile} className={'btn-create-new'}>
+            <AddCircleOutlineIcon />
+            <span className="createButtonTitle">Get Started</span>
+          </Button>
+        </div>
+      </div>
+    </header>
+  );
 }
 
 const styles = css`
   background-color: #00000000;
-  transition: background-color .5s ${theme.transitionEasing};
+  transition: background-color 0.5s ${theme.styles.transitionEasing};
   color: white;
   fill: white;
   top: 18px;
   height: 60px;
 
-  &[data-background="true"] {
+  &[data-background='true'] {
     background-color: #ffffff;
-    transition: background-color .5s ${theme.transitionEasing};
-    box-shadow: ${theme.shadow};
+    transition: background-color 0.5s ${theme.styles.transitionEasing};
+    box-shadow: ${theme.styles.boxShadow};
     color: black;
     fill: black;
   }
-  
+
   .header {
     display: flex;
     flex-direction: row;
@@ -142,7 +129,7 @@ const styles = css`
     align-items: center;
     cursor: pointer;
 
-    ${theme.MAIN_MEDIA_QUERY} {
+    ${theme.DEFAULT_MEDIA_QUERY} {
       overflow: hidden;
     }
   }
@@ -151,12 +138,12 @@ const styles = css`
     font-size: 1.6rem;
     color: white;
 
-    ${theme.MAIN_MEDIA_QUERY} {
+    ${theme.DEFAULT_MEDIA_QUERY} {
       font-size: 1rem;
     }
   }
 
-  &[data-background="true"] {
+  &[data-background='true'] {
     .title {
       color: black;
     }
@@ -167,7 +154,7 @@ const styles = css`
     height: 26px;
     margin-right: 10px;
 
-    ${theme.MIN_MAIN_MEDIA_QUERY} {
+    ${theme.MIN_DEFAULT_MEDIA_QUERY} {
       object-fit: contain;
       height: 35px;
     }
@@ -192,7 +179,7 @@ const styles = css`
       left: 0;
       width: 100vw;
       height: 100vh;
-      background-color: ${theme.primary};
+      background-color: ${theme.colors.primary};
       z-index: 100;
       flex-direction: column;
       padding: 8% 0;
@@ -222,7 +209,7 @@ const styles = css`
 
       .close-menu {
         line-height: 50px;
-        color: ${theme.yellow};
+        color: ${theme.colors.yellow};
         margin-right: 8%;
       }
     }
@@ -231,4 +218,4 @@ const styles = css`
   .createButtonTitle {
     margin-left: 5px;
   }
-`
+`;

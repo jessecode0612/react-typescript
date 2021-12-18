@@ -82,6 +82,37 @@ describe('React Typescript App', () => {
 });
 ```
 
+### We can add some mock data for testing only. 
+Some data will need to be loaded with rendering, can't be implemented with test, which will throw error. we can fill them with mock data
+[EX] match media mock (tests/mocks/matchMedia.mock.ts)
+
+```typescript jsx
+export default Object.defineProperty(window, 'matchMedia', {
+  writable: true,
+  value: jest.fn().mockImplementation((query) => ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addListener: jest.fn(), // deprecated
+    removeListener: jest.fn(), // deprecated
+    addEventListener: jest.fn(),
+    removeEventListener: jest.fn(),
+    dispatchEvent: jest.fn()
+  }))
+});
+```
+
+### Add some jest mock modules that can't be transformed by default transformer provided
+```typescript jsx
+jest.mock('react-markdown', () => ({ children }: { children: ReactElement[] }) => {
+  return <>{children}</>;
+});
+
+jest.mock('remark-gfm', () => () => {});
+jest.mock('react-syntax-highlighter/dist/esm/styles/hljs', () => () => {});
+
+```
+
 ## Commands
 
 - Clear Cache `jest —clearCache`

@@ -37,6 +37,7 @@ export default function App() {
         <Route path={'/samples/counter'} element={<CounterPage />} />
 
         <Route path={'/docs'} element={<DocsPage />} />
+        <Route path={'/docs/:url'} element={<DocsPage />} />
 
         <Route path={'*'} element={<ErrorPage />} />
       </Routes>

@@ -10,8 +10,9 @@ import Logo from '../../components/Logo';
 import DefaultLayout from '../../layouts/DefaultLayout';
 import { menu } from '../../data/menu';
 import { ArrowNextIcon } from '../../components/Icons';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Loading } from '../../components/elements';
+import { useParams, useNavigate } from 'react-router-dom';
 
 export interface ListItemType {
   title: string;
@@ -21,12 +22,32 @@ export interface ListItemType {
 
 function ListItem({ item, handleMenuItemClick, url }: { item: ListItemType; handleMenuItemClick: (url: string) => void; url: string }) {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setOpen(checkOpen(item));
+  }, [url]);
+
+  const checkOpen = (_item: ListItemType): boolean => {
+    if (_item.url) {
+      return _item.url === url;
+    }
+    if (_item.list) {
+      for (const u of _item.list) {
+        if (checkOpen(u)) {
+          return checkOpen(u);
+        }
+      }
+    }
+    return false;
+  };
 
   const handleItemClick = () => {
     if (item.url) {
-      handleMenuItemClick(item.url);
+      navigate('/docs/' + encodeURIComponent(item.url));
+    } else {
+      setOpen((prevState) => !prevState);
     }
-    setOpen((prevState) => !prevState);
   };
 
   return (
@@ -47,6 +68,13 @@ function ListItem({ item, handleMenuItemClick, url }: { item: ListItemType; hand
 export default function DocsPage() {
   const [url, setUrl] = useState<string>('/docs/README.md');
   const { content, loading } = useFileLoader({ url });
+  const params = useParams();
+
+  useEffect(() => {
+    if (params.url) {
+      setUrl(decodeURIComponent(params.url));
+    }
+  }, [params]);
 
   const handleMenuItemClick = (url: string) => {
     setUrl(url);

@@ -2,10 +2,10 @@
 
 exports[`React App renders the html we want 1`] = `
 <div
-  className="h-100 flex"
+  className="h-100 flex-column"
 >
   <div
-    className="css-1u4l8yo-TopBar"
+    className="css-1e0nv3y-TopBar"
   >
     <span
       hidden={false}
@@ -314,34 +314,77 @@ exports[`React App renders the html we want 1`] = `
                   </div>
                 </li>
               </a>
+              <a
+                href="/samples/counter"
+                onClick={[Function]}
+              >
+                <li
+                  className="css-cf48ck-MenuLink"
+                  onClick={[Function]}
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="icon css-1hddcft-SVGIcon"
+                    role="presentation"
+                  >
+                    <use
+                      xlinkHref="#arrow-next"
+                    />
+                  </svg>
+                  <span
+                    className="menu-item-title"
+                  >
+                    Counter
+                  </span>
+                  <div
+                    className="next-icon-wrap"
+                    hidden={true}
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="icon css-1hddcft-SVGIcon"
+                      role="presentation"
+                    >
+                      <use
+                        xlinkHref="#arrow-next"
+                      />
+                    </svg>
+                  </div>
+                </li>
+              </a>
             </div>
           </ul>
         </div>
-        <button
-          className="btn-create-new btn css-0"
+        <a
+          href="/auth/login"
+          onClick={[Function]}
         >
-          <svg
-            aria-hidden="true"
-            className="icon css-1hddcft-SVGIcon"
-            role="presentation"
+          <button
+            className="btn-create-new btn css-0"
           >
-            <use
-              xlinkHref="#add-circle-outline"
-            />
-          </svg>
-          <span
-            className="createButtonTitle"
-          >
-            Get Started
-          </span>
-        </button>
+            <svg
+              aria-hidden="true"
+              className="icon css-1hddcft-SVGIcon"
+              role="presentation"
+            >
+              <use
+                xlinkHref="#add-circle-outline"
+              />
+            </svg>
+            <span
+              className="createButtonTitle"
+            >
+              Get Started
+            </span>
+          </button>
+        </a>
       </div>
     </div>
   </header>
   <div
     style={
       Object {
-        "marginTop": 18,
+        "paddingTop": 18,
       }
     }
   >
@@ -2387,7 +2430,7 @@ exports[`React App renders the html we want 1`] = `
         className="footer-link-wrapper"
       >
         <a
-          href="#home"
+          href="/#home"
         >
           <span
             className="footer-link text-bold"
@@ -2396,7 +2439,7 @@ exports[`React App renders the html we want 1`] = `
           </span>
         </a>
         <a
-          href="#projects"
+          href="/#projects"
         >
           <span
             className="footer-link text-bold"
@@ -2405,7 +2448,7 @@ exports[`React App renders the html we want 1`] = `
           </span>
         </a>
         <a
-          href="#skills"
+          href="/#skills"
         >
           <span
             className="footer-link text-bold"
@@ -2414,7 +2457,7 @@ exports[`React App renders the html we want 1`] = `
           </span>
         </a>
         <a
-          href="#contact-me"
+          href="/#contact-me"
         >
           <span
             className="footer-link text-bold"

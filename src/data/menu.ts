@@ -1,7 +1,19 @@
-import { ListItemType } from './index';
+import { ListItemType } from '../pages/docs';
 
 export const menu: ListItemType[] = [
   { title: 'Overview', url: '/docs/README.md' },
+  {
+    title: 'Projects Summaries',
+    list: [
+      { title: 'Havvi', url: '/docs/projects/havvi.md' },
+      { title: 'SpokeStack', url: '/docs/projects/spokestack.md' },
+      { title: 'Cloudpin', url: '/docs/projects/cloudpin.md' },
+      { title: 'Chill', url: '/docs/projects/chill.md' },
+      { title: 'Open House', url: '/docs/projects/openhouse.md' },
+      { title: 'Framexperts', url: '/docs/projects/framexperts.md' },
+      { title: 'Wasil', url: '/docs/projects/wasil.md' }
+    ]
+  },
   {
     title: 'Languages',
     list: [

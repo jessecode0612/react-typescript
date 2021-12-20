@@ -24,7 +24,8 @@ const menuList = [
       { name: 'Simple API', path: '/samples/simple-api', icon: <ArrowNextIcon /> },
       { name: 'Resizable', path: '/samples/resizable', icon: <ArrowNextIcon /> },
       { name: 'Toaster', path: '/samples/toaster', icon: <ArrowNextIcon /> },
-      { name: 'Carousel', path: '/samples/carousel', icon: <ArrowNextIcon /> }
+      { name: 'Carousel', path: '/samples/carousel', icon: <ArrowNextIcon /> },
+      { name: 'Counter', path: '/samples/counter', icon: <ArrowNextIcon /> }
     ]
   }
 ];
@@ -69,10 +70,12 @@ export default function Header() {
 
           <Menu menu={menuList} activeMenu={activeMenu} menuClick={handleMenuClick} />
 
-          <Button transparent={isMobile} secondary={isMobile} className={'btn-create-new'}>
-            <AddCircleOutlineIcon />
-            <span className="createButtonTitle">Get Started</span>
-          </Button>
+          <Link to="auth/login">
+            <Button transparent={isMobile} secondary={isMobile} className={'btn-create-new'}>
+              <AddCircleOutlineIcon />
+              <span className="createButtonTitle">Get Started</span>
+            </Button>
+          </Link>
         </div>
       </div>
     </header>

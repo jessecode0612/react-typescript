@@ -8,7 +8,7 @@ import { darcula } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import theme from '../../styles/theme';
 import Logo from '../../components/Logo';
 import DefaultLayout from '../../layouts/DefaultLayout';
-import { menu } from './menu';
+import { menu } from '../../data/menu';
 import { ArrowNextIcon } from '../../components/Icons';
 import { useState } from 'react';
 import { Loading } from '../../components/elements';

@@ -41,7 +41,7 @@ export default css`
   }
   
   a{
-    color: ${theme.colors.text};
+    color: ${theme.colors.primary};
     text-decoration: none;
   }
   

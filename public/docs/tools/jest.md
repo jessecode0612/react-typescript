@@ -1,5 +1,9 @@
 # Testing React Apps with Jest
 
+## Commands
+
+- Clear Cache `jest —clearCache`
+
 ## Setup
 
 ### Setup with Create React App
@@ -82,7 +86,8 @@ describe('React Typescript App', () => {
 });
 ```
 
-### We can add some mock data for testing only. 
+### We can add some mock data for testing only.
+
 Some data will need to be loaded with rendering, can't be implemented with test, which will throw error. we can fill them with mock data
 [EX] match media mock (tests/mocks/matchMedia.mock.ts)
 
@@ -103,6 +108,7 @@ export default Object.defineProperty(window, 'matchMedia', {
 ```
 
 ### Add some jest mock modules that can't be transformed by default transformer provided
+
 ```typescript jsx
 jest.mock('react-markdown', () => ({ children }: { children: ReactElement[] }) => {
   return <>{children}</>;
@@ -110,9 +116,72 @@ jest.mock('react-markdown', () => ({ children }: { children: ReactElement[] }) =
 
 jest.mock('remark-gfm', () => () => {});
 jest.mock('react-syntax-highlighter/dist/esm/styles/hljs', () => () => {});
-
 ```
 
-## Commands
+## Set up on Laravel-Mix and Vue
 
-- Clear Cache `jest —clearCache`
+### scripts
+```json
+{
+  "scripts": {
+    "test": "jest -i"
+  }
+}
+```
+
+### Npm installs
+
+```yarn
+yarn add -D @babel/core
+yarn add -D @babel/preset-env
+yarn add -D @vue/test-utils
+yarn add -D babel-core
+yarn add -D babel-jest
+yarn add -D babel-loader
+yarn add -D babel-preset-env
+yarn add -D jest
+yarn add -D vue-jest
+```
+
+### .babelrc
+
+```json lines
+{
+	"presets": [
+		"@babel/preset-env"
+	]
+}
+```
+
+### Jest.config.js
+```js
+module.exports = {
+  verbose: true,
+  testEnvironment: 'jsdom',
+  moduleFileExtensions: ['js', 'json', 'vue'],
+  transform: {
+    '.*\\.(vue)$': 'vue-jest',
+    '^.+\\.js$': 'babel-jest'
+  },
+  testMatch: ['**/resources/js/tests/*.test.js']
+}
+```
+
+### Test file using Vux
+
+```js
+import { mount, createLocalVue } from '@vue/test-utils'
+import Vuex from 'vuex'
+import EditPage from '../section-builder/components/EditPage.vue'
+import { store } from '../section-builder/store'
+
+const localVue = createLocalVue()
+localVue.use(Vuex)
+
+describe('ExampleComponent', () => {
+  test('is a Vue instance', () => {
+    const wrapper = mount(EditPage, { store, localVue })
+    expect(wrapper.isVueInstance).toBeTruthy()
+  })
+})
+```

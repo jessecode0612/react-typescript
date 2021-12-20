@@ -12,16 +12,16 @@ export default function Footer({ isDark = false }: Props) {
       <div className={`footer-container ${isDark ? 'dark' : ''}`}>
         <span className="text-sm">Copyright © {new Date().getUTCFullYear()} BP</span>
         <div className="footer-link-wrapper">
-          <a href="#home">
+          <a href="/#home">
             <span className="footer-link text-bold">Home</span>
           </a>
-          <a href="#projects">
+          <a href="/#projects">
             <span className="footer-link text-bold">Projects</span>
           </a>
-          <a href="#skills">
+          <a href="/#skills">
             <span className="footer-link text-bold">Skills</span>
           </a>
-          <a href="#contact-me">
+          <a href="/#contact-me">
             <span className="footer-link text-bold">Contact Me</span>
           </a>
         </div>

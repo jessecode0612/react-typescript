@@ -10,12 +10,12 @@ interface AuxProps {
 
 const DefaultLayout = ({ children, header = true }: AuxProps) => {
   return (
-    <div className={'h-100 flex'}>
+    <div className="h-100 flex-column">
       <TopBar />
       {header && <Header />}
       <div
         style={{
-          marginTop: 18
+          paddingTop: 18
         }}
       >
         {children}

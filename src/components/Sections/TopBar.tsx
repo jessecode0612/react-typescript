@@ -18,7 +18,7 @@ export default function TopBar() {
 const styles = css`
   position: fixed;
   top: 0;
-  background-color: #389838d8;
+  background-color: #389838;
   width: 100vw;
   height: 18px;
   padding: 2px 30px;

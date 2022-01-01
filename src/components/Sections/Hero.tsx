@@ -2,27 +2,29 @@
 import { css, jsx } from '@emotion/react';
 import theme from '../../styles/theme';
 import { useScreen } from '../../utils/hooks';
+import SocialGroup from "../elements/SocialGroup";
 
 export default function Hero() {
   const { isMobile } = useScreen();
   return (
     <div css={styles} id="home">
       <div className="container">
-        <h4>Liu XianRu</h4>
-        <h2>Software Architect and Full-Stack Developer</h2>
+        <h4>Bhusan Paudel</h4>
+        <h2>Full Stack Software Engineer</h2>
         <p hidden={isMobile}>
-          I am a passionate mobile/web developer with 8+ years rich experience. Before felling in love with mobile/web apps.
+          I design, develop, deploy, and maintain custom web and client applications using the latest technologies and industry standards.
           <br />
-          Be sure to receive committed team and high quality product with all the essential documentation.
+          Working closely with our customers during the design and testing phases ensure a result everyone is proud of.
         </p>
+        <SocialGroup />
         <hr style={{height: 1, backgroundColor:'#ffffff7f', border: 'none', margin: '30px 0'}} />
         <div style={{display:'flex', alignItems:'center'}}>
           {
             [
-              {label: 'Strong Skills', count: '80+'},
+              {label: 'Strong Skills', count: '30+'},
               {label: 'Potential Clients', count: '18+'},
-              {label: 'Backend Development', count: '+5 years'},
-              {label: 'Frontend Development', count: '+6 years'},
+              {label: 'Backend Development', count: '+6 years'},
+              {label: 'Frontend Development', count: '+7 years'},
               {label: 'Mobile Development', count: '+4 years'},
             ].map((item, index)=>(
               <div key={index} style={{display: "flex", flexDirection:'column', marginRight: 20}}>
@@ -39,8 +41,8 @@ export default function Hero() {
             <path d="M 0,1
               L 0,0
               L 1,0
-              L 1,1
-              C .65 .8, .35 .8, 0 1
+              L 1,.8
+              C .5 .8, .7 1, 0 1
               Z" />
           </clipPath>
         </defs>

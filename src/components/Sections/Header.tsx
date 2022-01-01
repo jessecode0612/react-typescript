@@ -7,9 +7,10 @@ import { Link } from 'react-router-dom';
 import { css } from '@emotion/react';
 import { useScreen } from '../../utils/hooks';
 
-import { MovingIcon, HamburgerIcon, ArrowNextIcon } from '../Icons';
+import { MovingIcon, HamburgerIcon, ArrowNextIcon, DownloadIcon } from "../Icons";
 import Menu from '../Menu';
 import { useScroll } from '../../utils/hooks';
+import Button from "../Button";
 
 const menuList = [
   {
@@ -57,7 +58,7 @@ export default function Header() {
         <Link className="logoWrap" to="/">
           <div className="logoWrap">
             <strong className="title" hidden={isMobile}>
-              LXR
+              BP
             </strong>
           </div>
         </Link>
@@ -68,6 +69,12 @@ export default function Header() {
             </strong>
           </div>
           <Menu menu={menuList} activeMenu={activeMenu} menuClick={handleMenuClick} />
+          <a href="./Bhusan%20Paudel.pdf" download={true}>
+            <Button transparent={isMobile} secondary={isMobile} className={'btn-create-new'}>
+              <DownloadIcon />
+              <span className="createButtonTitle">Download CV</span>
+            </Button>
+          </a>
         </div>
       </div>
     </header>

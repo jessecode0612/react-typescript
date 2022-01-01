@@ -12,9 +12,11 @@ git push -u origin master
 #### Commands
 
 - Clear cached file
+
 ```yarn
 git rm --cached [FOLDER OR FILE NAME TO REMOVE] -r
 ```
+
 - Squash commits
 
 ```yarn
@@ -25,14 +27,19 @@ git merge --squash styling
 ```
 
 - Amend
+
 ```yarn
 git commit --amend --author="lovecoding-git <bhupaudel0@gmail.com>"
 ```
+
 - Add a new remote
+
 ```yarn
 git remote add origin [GIT_REPOSITORY_URL]
 ```
+
 - Change the url of an existing remote repository
+
 ```yarn
 git remote set-url origin [GIT_REPOSITORY_URL]
 ```

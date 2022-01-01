@@ -9,21 +9,23 @@ interface Props {
 export default function Footer({ isDark = false }: Props) {
   return (
     <footer css={styles.footer}>
-      <div className={`footer-container ${isDark ? 'dark' : ''}`}>
-        <span className="text-sm">Copyright © {new Date().getUTCFullYear()} BP</span>
-        <div className="footer-link-wrapper">
-          <a href="/#home">
-            <span className="footer-link text-bold">Home</span>
-          </a>
-          <a href="/#projects">
-            <span className="footer-link text-bold">Projects</span>
-          </a>
-          <a href="/#skills">
-            <span className="footer-link text-bold">Skills</span>
-          </a>
-          <a href="/#contact-me">
-            <span className="footer-link text-bold">Contact Me</span>
-          </a>
+      <div className="container">
+        <div className={`footer-container ${isDark ? 'dark' : ''}`}>
+          <span className="text-sm">Copyright © {new Date().getUTCFullYear()} Liu XianRu</span>
+          <div className="footer-link-wrapper">
+            <a href="/#home">
+              <span className="footer-link text-bold">Home</span>
+            </a>
+            <a href="/#projects">
+              <span className="footer-link text-bold">Projects</span>
+            </a>
+            <a href="/#skills">
+              <span className="footer-link text-bold">Skills</span>
+            </a>
+            <a href="/#contact-me">
+              <span className="footer-link text-bold">Contact Me</span>
+            </a>
+          </div>
         </div>
       </div>
     </footer>
@@ -43,7 +45,7 @@ const styles = {
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      padding: 16px 30px;
+      padding: 8px 0;
 
       ${theme.DEFAULT_MEDIA_QUERY} {
         flex-direction: column;

@@ -59,7 +59,6 @@ export default function Logos() {
 
 const styles = css`
   width: 96%;
-  margin-top: 30px;
 
   .carousel-item {
     padding: 10%;

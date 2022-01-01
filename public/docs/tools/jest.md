@@ -121,6 +121,7 @@ jest.mock('react-syntax-highlighter/dist/esm/styles/hljs', () => () => {});
 ## Set up on Laravel-Mix and Vue
 
 ### scripts
+
 ```json
 {
   "scripts": {
@@ -147,13 +148,12 @@ yarn add -D vue-jest
 
 ```json lines
 {
-	"presets": [
-		"@babel/preset-env"
-	]
+  "presets": ["@babel/preset-env"]
 }
 ```
 
 ### Jest.config.js
+
 ```js
 module.exports = {
   verbose: true,
@@ -164,24 +164,24 @@ module.exports = {
     '^.+\\.js$': 'babel-jest'
   },
   testMatch: ['**/resources/js/tests/*.test.js']
-}
+};
 ```
 
 ### Test file using Vux
 
 ```js
-import { mount, createLocalVue } from '@vue/test-utils'
-import Vuex from 'vuex'
-import EditPage from '../section-builder/components/EditPage.vue'
-import { store } from '../section-builder/store'
+import { mount, createLocalVue } from '@vue/test-utils';
+import Vuex from 'vuex';
+import EditPage from '../section-builder/components/EditPage.vue';
+import { store } from '../section-builder/store';
 
-const localVue = createLocalVue()
-localVue.use(Vuex)
+const localVue = createLocalVue();
+localVue.use(Vuex);
 
 describe('ExampleComponent', () => {
   test('is a Vue instance', () => {
-    const wrapper = mount(EditPage, { store, localVue })
-    expect(wrapper.isVueInstance).toBeTruthy()
-  })
-})
+    const wrapper = mount(EditPage, { store, localVue });
+    expect(wrapper.isVueInstance).toBeTruthy();
+  });
+});
 ```

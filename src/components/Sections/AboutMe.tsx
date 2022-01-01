@@ -6,15 +6,20 @@ export default function AboutMe() {
     <div css={styles} className="container" id="about-me">
       <h3>About me</h3>
       <p>
-        I am specialized in Web and Mobile app development. I am highly specialized in Web and Mobile app development. I have solid knowledge in these areas and also a deep
-        understanding of the technical side of things. I have the necessary drive, motivation and energy to see a project through to its completion. I pride myself on completing
-        projects on time
+        I'm Liu XianRu(刘贤茹),  an Chinese Software Architect and Full-Stack Developer, with a strong attitude to Growth Hacking.
       </p>
       <p>
-        Detail-oriented, adaptable and hard-working with 6+ years of experiences in developing mobile & web applications with contributing to lots of personal businesses and
-        companies so far. I really enjoy working on cutting-edge projects and developing enabling new technologies in the hope that these will one day translate back to the real
-        world and have a direct impact on our lives. I also enjoy being surrounded by brilliant people that share the vision of “technology for good” and I am truly humbled by
-        their support. Meanwhile, I am excited by the ever-growing challenges I am faced with as my career unfolds, and keen to taking them on.
+        I'm graduated in Computer Science, and I have more than 10 years of experience in web/mobile development plus acquired skills in Marketing and Product Ownership.
+        I love to think about myself as a perfectionist: in my opinion, at the base of a solid product, there must be concepts like scalability, security, maintainability and a perfect UI/UX design, but all of them need to receive the right priority to make sure an MVP oriented development process could be followed.
+        I approach everything Agile and with my team I refined a new SCRUM like methodology that allows us to be super-precise, delivering on time and following high standard of coding thanks to many micro iterations of 1 or 2 weeks each.
+        Native Chinese, business English.
+      </p>
+      <p>
+        Main coding skills: Javascript, React.js, React-Native, Redux + Saga, GraphQL, Node.js, Express.js, Typescript, Jest, Enzyme, docker, kubernetes.
+        Growth Hacking: from brainstorming and research to MVP development, data collection, measurement and analysis, to rethink and tweaks learning from data acquired.
+        Others coding skills: PHP, HTML, CSS, Wordpress, Python, jQuery
+        Tools: GIT, JIRA, Roundrush, Confluence, Slack, Asana, Figma, Roadmaps etc.
+        2+ Years exp. on blockchain, cryptocurrency, e-wallets, money exchange, bitcoin, cryptography, hashing, ETH, BTC
       </p>
     </div>
   );

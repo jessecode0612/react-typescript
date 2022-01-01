@@ -147,6 +147,7 @@ export default css`
   img,
   form {
     margin: 0;
+    width: 100%;
   }
 
   // Table

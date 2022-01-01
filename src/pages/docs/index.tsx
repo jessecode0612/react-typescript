@@ -25,22 +25,21 @@ function ListItem({ item, handleMenuItemClick, url }: { item: ListItemType; hand
   const navigate = useNavigate();
 
   useEffect(() => {
-    setOpen(checkOpen(item));
-  }, [url]);
-
-  const checkOpen = (_item: ListItemType): boolean => {
-    if (_item.url) {
-      return _item.url === url;
-    }
-    if (_item.list) {
-      for (const u of _item.list) {
-        if (checkOpen(u)) {
-          return checkOpen(u);
+    function checkOpen(_item: ListItemType): boolean {
+      if (_item.url) {
+        return _item.url === url;
+      }
+      if (_item.list) {
+        for (const u of _item.list) {
+          if (checkOpen(u)) {
+            return checkOpen(u);
+          }
         }
       }
+      return false;
     }
-    return false;
-  };
+    setOpen(checkOpen(item));
+  }, [url, item]);
 
   const handleItemClick = () => {
     if (item.url) {

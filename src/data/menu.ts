@@ -73,7 +73,7 @@ export const menu: ListItemType[] = [
       { title: 'Linux', url: '/docs/system/linux.md' },
       { title: 'Nginx', url: '/docs/system/nginx.md' },
       { title: 'Caddy', url: '/docs/system/caddy.md' },
-      { title: 'Window', url: '/docs/system/window.md' }
+      { title: 'Window', url: '/docs/system/windows.md' }
     ]
   },
   {

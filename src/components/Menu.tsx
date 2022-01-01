@@ -11,14 +11,13 @@ import { css } from '@emotion/react';
 import { useScreen } from '../utils/hooks';
 import { useNavigate } from 'react-router-dom';
 
-// import {useScroll} from '../utils/hooks/useScroll'
-
 interface MenuItemType {
-  name: string;
-  path?: string;
-  icon?: JSX.Element;
-  list?: MenuItemType[];
-  shallow?: boolean;
+  name: string
+  path?: string
+  icon?: JSX.Element
+  list?: MenuItemType[]
+  shallow?: boolean
+  show?: boolean
 }
 
 interface MenuItemProps extends MenuItemType {
@@ -76,7 +75,7 @@ export const MenuItemList = ({ list }: { list: MenuItemType[] }) => {
   );
 };
 
-export const MenuItem = ({ name, icon, path, list, activeMenu, menuClick }: MenuItemProps) => {
+export const MenuItem = ({ name, icon, path, list, activeMenu, menuClick, show = true }: MenuItemProps) => {
   const { isDesktop } = useScreen();
   const navigate = useNavigate();
 
@@ -99,6 +98,10 @@ export const MenuItem = ({ name, icon, path, list, activeMenu, menuClick }: Menu
   const removeActiveMenu = () => {
     menuClick(undefined);
   };
+
+  if(!show){
+    return null
+  }
 
   if (list) {
     return (

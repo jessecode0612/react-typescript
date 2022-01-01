@@ -18,7 +18,7 @@ export interface LocationType {
 export function getCurrentLocation(locale: string = 'fr', callback: (location: LocationType) => void) {
   const apiKey = process.env.REACT_APP_GOOGLE_API_KEY;
   if (!apiKey) {
-    throw 'google api key must be defined on .env';
+    throw new Error('google api key must be defined on .env');
   }
   Geocode.setApiKey(apiKey!);
   Geocode.setRegion(locale);

@@ -5,6 +5,8 @@ export default [
     image: '/images/projects/spokestack.png',
     website: 'https://spokestack.io/',
     tags: ['NextJS', 'Node', 'Websocket', 'SASS'],
+    google: '',
+    detail: '',
     description:
       'Spokestack is a powerful platform of open source libraries and robust services to make your software fully voice-enabled. ' +
       'Get started with open-source libraries that add speech recognition, text-to-speech, and language understanding to your software with one simple cross-platform API. ' +
@@ -14,7 +16,7 @@ export default [
     categories: ['web'],
     name: 'Faevva Pay',
     image: '/images/projects/tcn.png',
-    website: 'http://tcn.webbb.site/',
+    website: 'https://tcn.webbb.site/',
     tags: ['React', 'ThreeJS', 'Node', 'MongoDB'],
     description: 'Faevva Pay is an example website built with MERN stack. TreeJS for front design and simple login & register function and has dashboard.'
   },
@@ -32,6 +34,7 @@ export default [
     name: 'Havvi',
     image: '/images/projects/havvi.png',
     website: 'https://havvi.app',
+    detail: '/docs/%2Fdocs%2Fprojects%2Fhavvi.md',
     tags: ['Expo', 'Firestore', 'Firebase function', 'FCM', 'NodeJS', 'Strip'],
     apple: 'https://apps.apple.com/tt/app/havvi-fitness-home-workouts/id1577812599',
     description: 'Havvi brings you the best home fitness content from 100+ of the world’s top creators, totaling over 16,000 workouts and growing daily.'
@@ -53,5 +56,29 @@ export default [
     apple: 'https://apps.apple.com/us/app/cloudpin/id1516110996',
     tags: ['Expo', 'Firestore', 'Firebase function', 'FCM', 'Tap', 'GatsbyJS'],
     description: 'Cloudpin lets users broadcast content to anyone in the world by simply sharing an easy to remember pin code.'
+  },
+  {
+    categories: ['web'],
+    name: 'Frame Experts',
+    image: '/images/projects/frame-experts.png',
+    website: 'https://framexperts.com/',
+    tags: ['Laravel','Vue','MySQL','Ecommerce','Stripe'],
+    description: 'Frame order website. A customer can order the frames as he wants and see how they look using builder component. Frame builder component was built with Vue.JS and admin & front area are built with Laravel..'
+  },
+  {
+    categories: ['web'],
+    name: 'No AnKor',
+    image: '/images/projects/no-ankor.png',
+    website: 'https://noankor.com/',
+    tags: ['Laravel','Vue','MySQL','Ecommerce','Stripe'],
+    description: 'NoAnkor is a free platform that empowers property owners to share empty spaces with outdoor enthusiasts.'
+  },
+  {
+    categories: ['design'],
+    name: 'Summit',
+    image: '/images/projects/summit.png',
+    website: 'https://jeremy.webbb.site/',
+    tags: ['HTML','Javascript'],
+    description: 'One of great animation design'
   }
 ];

@@ -5,10 +5,9 @@ import theme from '../../styles/theme';
 
 import { Link } from 'react-router-dom';
 import { css } from '@emotion/react';
-import Button from '../Button';
 import { useScreen } from '../../utils/hooks';
 
-import { AddCircleOutlineIcon, MovingIcon, HamburgerIcon, ArrowNextIcon } from '../Icons';
+import { MovingIcon, HamburgerIcon, ArrowNextIcon } from '../Icons';
 import Menu from '../Menu';
 import { useScroll } from '../../utils/hooks';
 
@@ -20,6 +19,7 @@ const menuList = [
   {
     name: 'Samples',
     icon: <MovingIcon />,
+    show: false,
     list: [
       { name: 'Simple API', path: '/samples/simple-api', icon: <ArrowNextIcon /> },
       { name: 'Resizable', path: '/samples/resizable', icon: <ArrowNextIcon /> },
@@ -57,7 +57,7 @@ export default function Header() {
         <Link className="logoWrap" to="/">
           <div className="logoWrap">
             <strong className="title" hidden={isMobile}>
-              BP
+              LXR
             </strong>
           </div>
         </Link>
@@ -67,15 +67,7 @@ export default function Header() {
               Close
             </strong>
           </div>
-
           <Menu menu={menuList} activeMenu={activeMenu} menuClick={handleMenuClick} />
-
-          <Link to="auth/login">
-            <Button transparent={isMobile} secondary={isMobile} className={'btn-create-new'}>
-              <AddCircleOutlineIcon />
-              <span className="createButtonTitle">Get Started</span>
-            </Button>
-          </Link>
         </div>
       </div>
     </header>
@@ -102,10 +94,10 @@ const styles = css`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-end;
     text-align: center;
     width: 100%;
     margin: auto;
+    align-items: center;
 
     ${theme.MOBILE_MEDIA_QUERY} {
       justify-content: center;

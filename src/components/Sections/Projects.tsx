@@ -3,6 +3,11 @@ import { css, jsx } from '@emotion/react';
 import theme from '../../styles/theme';
 import projects from '../../data/projects';
 import { weightedShuffle } from "../../utils/helpers";
+import { RatioView } from "../elements";
+import WebIcon from "../Icons/WebIcon";
+import Tooltip from "../Tooltip";
+import GoogleIcon from "../Icons/GoogleIcon";
+import AppleIcon from "../Icons/AppleIcon";
 
 export default function Projects() {
 
@@ -12,27 +17,34 @@ export default function Projects() {
       <div className="project-wrapper">
         {weightedShuffle(projects).map((project, index) => (
           <div key={index.toString()} className="project-item">
-            <img src={project.image} alt={project.name} />
+            <RatioView ratio={1/2}>
+              <img src={project.image} alt={project.name} />
+            </RatioView>
             <div className="title">
-              <h5>{project.name}</h5>
+              <h5>{project.title}</h5>
             </div>
             <div className="links">
+              <h6 style={{paddingRight: 10}}>{project.subtitle}</h6>
               {
                 project.website &&
                 <a href={project.website} target="_blank" rel="noopener noreferrer">
-                  Website
+                  <Tooltip content="visit website">
+                    <WebIcon />
+                  </Tooltip>
                 </a>
               }
               {
                 project.apple &&
                 <a href={project.apple} target="_blank" rel="noopener noreferrer">
-                  App Store
+                  <Tooltip content="play store">
+                    <AppleIcon />
+                  </Tooltip>
                 </a>
               }
               {
                 project.google &&
                 <a href={project.google} target="_blank" rel="noopener noreferrer">
-                  Play Store
+                  <GoogleIcon />
                 </a>
               }
               {
@@ -81,6 +93,7 @@ const styles = css`
     img {
       width: 100%;
       object-fit: contain;
+      border-radius: 4px;
     }
     
     .title,

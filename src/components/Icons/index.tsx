@@ -7,6 +7,7 @@ interface Props {
   extraCss?: SerializedStyles | SerializedStyles[];
 }
 export * from './LoadingIcon';
+
 export function AddCircleOutlineIcon({ extraCss }: Props) {
   return (
     <SVGIcon
@@ -46,21 +47,6 @@ export function AddOutlineIcon({ extraCss }: Props) {
         css`
           width: 16px;
           height: 16px;
-        `
-      ].concat(extraCss!)}
-    />
-  );
-}
-
-export function AppleIcon({ extraCss }: Props) {
-  return (
-    <SVGIcon
-      icon="#apple"
-      className="icon"
-      extraCss={[
-        css`
-          width: 9px;
-          height: 10px;
         `
       ].concat(extraCss!)}
     />
@@ -409,21 +395,6 @@ export function FiltersIcon({ extraCss }: Props) {
         css`
           width: 14px;
           height: 13px;
-        `
-      ].concat(extraCss!)}
-    />
-  );
-}
-
-export function GoogleIcon({ extraCss }: Props) {
-  return (
-    <SVGIcon
-      icon="#google"
-      className="icon"
-      extraCss={[
-        css`
-          width: 10px;
-          height: 10px;
         `
       ].concat(extraCss!)}
     />

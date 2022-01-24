@@ -12,13 +12,13 @@ export default function Tooltip({ content, children, ...rest }: Props) {
     const element: HTMLDivElement = tooltipRef.current!;
     const appendToolTip = () => {
       const rect = element.getBoundingClientRect();
-      const tooltipContainerId = '__tooltip-container';
+      const tooltipContainerId = 'tooltip-container';
       let toolTipContainer = document.getElementById(tooltipContainerId);
       if (toolTipContainer === null && content) {
         toolTipContainer = document.createElement('div');
         toolTipContainer.setAttribute('id', tooltipContainerId);
         toolTipContainer.style.cssText = `
-        position: absolute;
+        position: fixed;
         top: ${rect.bottom + 10}px;
         color: white;
         font-size: 14px;
@@ -49,7 +49,7 @@ export default function Tooltip({ content, children, ...rest }: Props) {
           border-radius: 2px;
         `;
         if (typeof content === 'string') {
-          toolTipContainer.innerHTML = 'content';
+          toolTipContainer.innerHTML = content;
         } else if (typeof content === 'function') {
           toolTipContainer.innerHTML = renderToStaticMarkup(content());
         } else {
@@ -65,7 +65,7 @@ export default function Tooltip({ content, children, ...rest }: Props) {
               `
             left: ${rect.left + rect.width / 2 - toolTipContainer.clientWidth / 2}px;
             transform: scale(1);
-            transition-delay: 500ms;
+            transition-delay: 100ms;
             transition: all 200ms ease-out;
           `;
           }

@@ -41,8 +41,8 @@ export default function Hero() {
             <path d="M 0,1
               L 0,0
               L 1,0
-              L 1,.8
-              C .5 .8, .7 1, 0 1
+              L 1,.9
+              C .5 .9, .7 1, 0 1
               Z" />
           </clipPath>
         </defs>

@@ -85,7 +85,7 @@ export default function Tooltip({ content, children, ...rest }: Props) {
     return () => {
       element.removeEventListener('mouseenter', appendToolTip);
     };
-  }, []);
+  }, [content]);
 
   return (
     <div ref={tooltipRef} {...rest}>

@@ -1,22 +1,15 @@
 export default [
   {
     categories: ['web'],
-    title: 'Spokestack',
     image: '/images/projects/spokestack.png',
     website: 'https://spokestack.io/',
     tags: ['NextJS', 'Node', 'Websocket', 'SASS'],
     google: '',
     detail: '',
+    title: 'Spokestack',
+    subtitle: 'Machine Learning Service',
     description:
       'Spokestack is a machine learning service platform that provides open source libraries of speech recognition, text-to-speech and language understanding'
-  },
-  {
-    categories: ['web'],
-    title: 'Faevva Pay',
-    image: '/images/projects/tcn.png',
-    website: 'https://tcn.webbb.site/',
-    tags: ['React', 'ThreeJS', 'Node', 'MongoDB'],
-    description: 'Faevva Pay is an example website built with MERN stack. TreeJS for front design and simple login & register function and has dashboard.'
   },
   {
     categories: ['web'],
@@ -24,60 +17,9 @@ export default [
     image: '/images/projects/wasil.png',
     website: 'https://wasil-iq.com/ON/',
     tags: ['PHP', 'MySQL', 'Javascript', 'Paypal', 'Stripe'],
+    subtitle: 'E-Commerce',
     description:
       'Wasil is the first and the biggest fully automated shipping company in Iraq. They at Wasil aim to bring Iraq a step closer to the modern world by providing exceptional shipping services to our lovely costumers.'
-  },
-  {
-    categories: ['mobile'],
-    title: 'Havvi',
-    image: '/images/projects/havvi.png',
-    website: 'https://havvi.app',
-    detail: '/docs/%2Fdocs%2Fprojects%2Fhavvi.md',
-    tags: ['Expo', 'Firestore', 'Firebase function', 'FCM', 'NodeJS', 'Strip'],
-    apple: 'https://apps.apple.com/tt/app/havvi-fitness-home-workouts/id1577812599',
-    description: 'Havvi brings you the best home fitness content from 100+ of the world’s top creators, totaling over 16,000 workouts and growing daily.'
-  },
-  {
-    categories: ['mobile'],
-    title: 'Chill Car Service',
-    image: '/images/projects/chill.png',
-    website: 'https://chillapp.ae/',
-    tags: ['React Native', 'Firestore', 'Firebase function', 'FCM', 'Tap', 'NodeJS'],
-    description:
-      'CHILL is an online car wash platform (Interior, exterior & Disinfectant) with extended features, The only online car wash market place that connects to car wash company and customer with instant booking at the BEST price'
-  },
-  {
-    categories: ['mobile', 'web'],
-    title: 'Cloudpin',
-    image: '/images/projects/cloudpin.png',
-    website: 'https://cloudpin.it/',
-    apple: 'https://apps.apple.com/us/app/cloudpin/id1516110996',
-    tags: ['Expo', 'Firestore', 'Firebase function', 'FCM', 'Tap', 'GatsbyJS'],
-    description: 'Cloudpin lets users broadcast content to anyone in the world by simply sharing an easy to remember pin code.'
-  },
-  {
-    categories: ['web'],
-    title: 'Frame Experts',
-    image: '/images/projects/frame-experts.png',
-    website: 'https://framexperts.com/',
-    tags: ['Laravel','Vue','MySQL','Ecommerce','Stripe'],
-    description: 'Frame order website. A customer can order the frames as he wants and see how they look using builder component. Frame builder component was built with Vue.JS and admin & front area are built with Laravel..'
-  },
-  {
-    categories: ['web'],
-    title: 'No AnKor',
-    image: '/images/projects/no-ankor.png',
-    website: 'https://noankor.com/',
-    tags: ['Laravel','Vue','MySQL','Ecommerce','Stripe'],
-    description: 'NoAnkor is a free platform that empowers property owners to share empty spaces with outdoor enthusiasts.'
-  },
-  {
-    categories: ['design'],
-    title: 'Summit',
-    image: '/images/projects/summit.png',
-    website: 'https://jeremy.webbb.site/',
-    tags: ['HTML','Javascript'],
-    description: 'One of great animation design'
   },
   {
     categories: ['web'],

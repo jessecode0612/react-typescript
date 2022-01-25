@@ -9,8 +9,7 @@ export default function TopBar() {
   return (
     <div css={styles}>
       <span hidden={isMobile}>Contact Me</span>
-      <a href="tel:+16612280244">(661) 228-0244</a>
-      <a href="mailto:wyanou213@163.com">bhupaudel0@gmail.com</a>
+      <a href="mailto:wyanou213@163.com">darkinstar@outlook.com</a>
     </div>
   );
 }

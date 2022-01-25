@@ -58,7 +58,7 @@ export default function Header() {
         <Link className="logoWrap" to="/">
           <div className="logoWrap">
             <strong className="title" hidden={isMobile}>
-              BP
+              WANG MING
             </strong>
           </div>
         </Link>
@@ -69,7 +69,7 @@ export default function Header() {
             </strong>
           </div>
           <Menu menu={menuList} activeMenu={activeMenu} menuClick={handleMenuClick} />
-          <a href="./Bhusan%20Paudel.pdf" download={true}>
+          <a href="./WangMing.pdf" download={true}>
             <Button transparent={isMobile} secondary={isMobile} className={'btn-create-new'}>
               <DownloadIcon />
               <span className="createButtonTitle">Download CV</span>

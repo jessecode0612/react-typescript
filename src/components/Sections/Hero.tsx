@@ -9,7 +9,6 @@ export default function Hero() {
   return (
     <div css={styles} id="home">
       <div className="container">
-        <h4>Bhusan Paudel</h4>
         <h2>Full Stack Software Engineer</h2>
         <p hidden={isMobile}>
           I design, develop, deploy, and maintain custom web and client applications using the latest technologies and industry standards.

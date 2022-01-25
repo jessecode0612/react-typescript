@@ -53,7 +53,7 @@ export default [
     image: '/images/projects/apical.png',
     website: 'https://apical.cloud/',
     tags: ['Nuxt','TailwindCSS','Amazon Amplifier','Stripe','Twillo','MongoDB'],
-    title: 'Cece\'s Crazy Creams',
+    title: 'Apical',
     subtitle: 'E-Commerce',
     description: 'APICAL is the digital space dedicated to operators and companies in tourism, events, and culture who want to grow and are not afraid of change. The project goal was to build the frontend of the APICAL cloud platform, which is multi-scale tour business website.'
   }

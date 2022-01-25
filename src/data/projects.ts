@@ -100,4 +100,12 @@ export default [
     tags: ['Laravel','Vue','MySQL','Ecommerce','Stripe'],
     description: 'Frame order website. A customer can order the frames as he wants and see how they look using builder component. Frame builder component was built with Vue.JS and admin & front area are built with Laravel..'
   },
+  {
+    categories: ['web'],
+    name: 'OGBB',
+    image: '/images/projects/ogbb.png',
+    website: 'https://www.ogbb.ch/',
+    tags: ['Laravel','Bootstrap','Jquery','Alpin.js','MySQL'],
+    description: 'OGBB is a kind of Social platform base on Switzerland. OGBB is an association that organizes events, provides information and advice for its members and allows them to connect with each other. We focus on topics such as security and mandatory public service'
+  },
 ];

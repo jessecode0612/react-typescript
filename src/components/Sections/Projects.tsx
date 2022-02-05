@@ -2,7 +2,6 @@
 import { css, jsx } from '@emotion/react';
 import theme from '../../styles/theme';
 import projects from '../../data/projects';
-import { weightedShuffle } from "../../utils/helpers";
 import { RatioView } from "../elements";
 import WebIcon from "../Icons/WebIcon";
 import Tooltip from "../Tooltip";
@@ -15,7 +14,7 @@ export default function Projects() {
     <div css={styles} className="container" id="projects">
       <h3>A few of my projects</h3>
       <div className="project-wrapper">
-        {weightedShuffle(projects).map((project, index) => (
+        {projects.map((project, index) => (
           <div key={index.toString()} className="project-item">
             <RatioView ratio={1/2}>
               <img src={project.image} alt={project.name} />

@@ -2,320 +2,332 @@
  *  Hooks for SpokeStack client methods
  */
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react'
 
-import { concatenateAudioBuffers, record, startProcessor, stopProcessor, ProcessorReturnValue, stopStream as stopAudioStream } from 'spokestack/client';
-import WavEncoder from 'wav-encoder';
-import { arrayBufferToBase64 } from '../../utils/helpers';
+import {
+  concatenateAudioBuffers,
+  record,
+  startProcessor,
+  stopProcessor,
+  ProcessorReturnValue
+} from 'spokestack/client'
+import WavEncoder from 'wav-encoder'
+import { arrayBufferToBase64 } from '../../utils/helpers'
 
 export interface RecordType {
-  text: string;
-  base64: string;
-  encoded: ArrayBuffer;
+  text: string
+  base64: string
+  encoded: ArrayBuffer
 }
 
 export interface RecorderType {
-  audioElm?: HTMLAudioElement;
+  audioElm?: HTMLAudioElement
 
   // settings
-  recordTime: number;
+  recordTime: number
 
   // data
-  records: Array<RecordType>;
-  error: string | null;
-  script: string;
-  source: string | null;
-  encoded: ArrayBuffer | null;
+  records: Array<RecordType>
+  error: string | null
+  script: string
+  source: string | null
+  encoded: ArrayBuffer | null
 
   // status variables
-  playing: boolean;
-  recording: boolean;
-  paused: boolean;
-  dataReceived: boolean;
+  playing: boolean
+  recording: boolean
+  paused: boolean
+  dataReceived: boolean
 
   // audio play actions
-  play: () => void;
-  stop: () => void;
-  clear: () => void;
-  pause: () => void;
-  toggle: () => void;
-  reset: () => void;
+  play: () => void
+  stop: () => void
+  clear: () => void
+  pause: () => void
+  toggle: () => void
+  reset: () => void
 
   // setters
-  getAudioSource: () => string | null;
-  setAudioSource: (source: string) => void;
-  setRecordTime: (s: number) => void;
+  getAudioSource: () => string | null
+  setAudioSource: (source: string) => void
+  setRecordTime: (s: number) => void
 
   // record actions
-  startRecord: (restart?: boolean) => Promise<RecordType>;
-  startStream: (restart?: boolean) => Promise<RecordType>;
-  stopStream: () => void;
-  buffer: AudioBuffer | null;
+  startRecord: (restart?: boolean) => Promise<RecordType>
+  startProcess: (restart?: boolean) => Promise<RecordType>
+  stopProcess: () => void
+  buffer: AudioBuffer | null
 }
 
-const MAX_VOICE_RECORD_TIME = 5; // max time to record voice in (s)
+const MAX_VOICE_RECORD_TIME = 30 // max time to record voice in (s)
 
+let processor: ScriptProcessorNode | null
 export function useSsAudioClient(): RecorderType {
   // Text streaming script for the voice from microphone
-  const [script, setScript] = useState<string>('');
+  const [script, setScript] = useState<string>('')
 
-  // Audio Element to replay recorded voice or sounds from mic phone
+  // Audio Element to replay recorded voice or sounds from microphone
   // or we can set source of it outside by using setAudioSource
-  const [audioElm, setAudioElm] = useState<HTMLAudioElement>();
+  const [audioElm, setAudioElm] = useState<HTMLAudioElement>()
 
   // Array of recorded data which contains the history of recording
-  const [records, setRecords] = useState<Array<RecordType>>([]);
+  const [records, setRecords] = useState<Array<RecordType>>([])
 
   // Raw value from complete record stream
-  const [encoded, setEncoded] = useState<ArrayBuffer | null>(null);
+  const [encoded, setEncoded] = useState<ArrayBuffer | null>(null)
 
   // Status of recording
-  const [recording, setRecording] = useState<boolean>(false);
+  const [recording, setRecording] = useState<boolean>(false)
 
   // Status of playing audio element
-  const [playing, setPlaying] = useState<boolean>(false);
-  const [paused, setPaused] = useState<boolean>(false);
+  const [playing, setPlaying] = useState<boolean>(false)
+  const [paused, setPaused] = useState<boolean>(false)
 
   // Error text
-  const [error, setError] = useState<string | null>(null);
-  const [dataReceived, setDataReceived] = useState<boolean>(false);
-  const [buffer, setBuffer] = useState<AudioBuffer | null>(null);
-  const [processorRet, setProcessorRet] = useState<ProcessorReturnValue | null>(null);
+  const [error, setError] = useState<string | null>(null)
+  const [dataReceived, setDataReceived] = useState<boolean>(false)
+  const [buffer, setBuffer] = useState<AudioBuffer | null>(null)
+  const [processorRet, setProcessorRet] = useState<ProcessorReturnValue | null>(
+    null
+  )
   // Max record time. it can be changed outside by using setRecordTime
   // Recording can be canceled by force before that time, otherwise, it will be stopped automatically after that time.
-  const [recordTime, setVoiceRecordTime] = useState<number>(MAX_VOICE_RECORD_TIME);
+  const [recordTime, setVoiceRecordTime] = useState<number>(
+    MAX_VOICE_RECORD_TIME
+  )
 
-  const [rerecording, setRerecording] = useState<boolean>(false);
+  const [rerecording, setRerecording] = useState<boolean>(false)
 
   // Audio source (url, base64 string, etc)
-  const [source, setSource] = useState<string | null>(null);
+  const [source, setSource] = useState<string | null>(null)
 
-  const recordTimeout = useRef<NodeJS.Timeout | null>(null);
+  const recordTimeout = useRef<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
-    const audioElement = document.createElement('audio');
-    document.body.appendChild(audioElement);
-    setAudioElm(audioElement);
+    const audioElement = document.createElement('audio')
+    document.body.appendChild(audioElement)
+    setAudioElm(audioElement)
 
     function handleAudioPlayEnd() {
-      audioElement.currentTime = 0;
-      setPlaying(false);
-      setPaused(false);
+      audioElement.currentTime = 0
+      setPlaying(false)
+      setPaused(false)
     }
 
-    audioElement.addEventListener('ended', handleAudioPlayEnd);
+    audioElement.addEventListener('ended', handleAudioPlayEnd)
 
     return () => {
-      audioElement.removeEventListener('ended', handleAudioPlayEnd);
-      audioElement.remove();
-    };
-  }, []);
+      audioElement.removeEventListener('ended', handleAudioPlayEnd)
+      audioElement.remove()
+    }
+  }, [])
 
   const setAudioSource = (source: string) => {
-    setSource(source);
-  };
+    setSource(source)
+  }
 
   const getAudioSource = (): string | null => {
-    return source;
-  };
+    return source
+  }
 
   const reset = () => {
-    stop();
-    setRecording(false);
-    setScript('');
-    setError('');
-  };
+    stop()
+    setRecording(false)
+    setEncoded(null)
+    setScript('')
+    setError('')
+  }
 
   const clear = () => {
-    reset();
-    setRecords([]);
-    setRerecording(false);
-  };
+    reset()
+    setRecords([])
+  }
 
   const toggle = () => {
     if (playing) {
-      pause();
+      pause()
     } else {
-      play();
+      play()
     }
-  };
+  }
 
   const play = () => {
     if (audioElm && source) {
       audioElm
         .play()
         .then(() => {
-          setPaused(false);
-          setPlaying(true);
+          setPaused(false)
+          setPlaying(true)
         })
         .catch((error) => {
-          setPlaying(false);
-          console.error('ERROR: playing record', error);
-        });
+          setPlaying(false)
+          console.error('ERROR: playing record', error)
+        })
     }
-  };
+  }
 
   const pause = () => {
-    audioElm!.pause();
-    setPlaying(false);
-    setPaused(true);
-  };
+    audioElm!.pause()
+    setPlaying(false)
+    setPaused(true)
+  }
 
   const setRecordTime = (s: number) => {
-    setVoiceRecordTime(s);
-  };
+    setVoiceRecordTime(s)
+  }
 
   const stop = () => {
     if (playing) {
-      audioElm!.pause();
-      audioElm!.currentTime = 0;
-      setPlaying(false);
+      audioElm!.pause()
+      audioElm!.currentTime = 0
+      setPlaying(false)
     }
-  };
+  }
 
   const startRecord = (restart?: boolean): Promise<RecordType> => {
     return new Promise((resolve, reject) => {
       if (restart) {
-        setRerecording(restart);
+        setRerecording(restart)
       }
-      reset();
+      reset()
       record({
         onStart: () => {
-          setRecording(true);
+          setRecording(true)
         },
         onProgress: (remaining) => {
-          console.log(remaining);
+          console.log(remaining)
         },
         time: recordTime
       })
         .then((buffer) => {
           recordingComplete(buffer)
             .then((record) => {
-              resolve(record);
+              resolve(record)
             })
             .catch((err) => {
-              resolve(err);
-            });
+              resolve(err)
+            })
         })
         .catch((err: Error) => {
-          setError(`There was a problem recording. Please try again. Details: ${err.message}`);
-          reject(err);
-        });
-    });
-  };
+          setError(
+            `There was a problem recording. Please try again. Details: ${err.message}`
+          )
+          reject(err)
+        })
+    })
+  }
 
   // Recording Complete Handler
-  const recordingComplete = async (buffer: AudioBuffer): Promise<RecordType> => {
+  const recordingComplete = async (
+    buffer: AudioBuffer
+  ): Promise<RecordType> => {
     return new Promise((resolve, reject) => {
       WavEncoder.encode({
         sampleRate: buffer.sampleRate,
-        channelData: [...Array(buffer.numberOfChannels)].map((_, i) => buffer.getChannelData(i))
+        channelData: [...Array(buffer.numberOfChannels)].map((_, i) =>
+          buffer.getChannelData(i)
+        )
       })
         .then((encoded: ArrayBuffer) => {
           const record = {
             text: script,
             base64: arrayBufferToBase64(encoded!),
             encoded: encoded
-          };
+          }
 
           if (rerecording) {
-            records[records.length - 1] = record;
+            records[records.length - 1] = record
           } else {
-            records.push(record);
+            records.push(record)
           }
-          setRecords([...records]);
+          setRecords([...records])
 
-          resolve(record);
+          resolve(record)
 
-          const base64AudioSource = `data:Audio/mp3;base64,${arrayBufferToBase64(encoded!)}`;
+          const base64AudioSource = `data:Audio/mp3;base64,${arrayBufferToBase64(
+            encoded!
+          )}`
 
-          setSource(base64AudioSource);
-          audioElm!.src = base64AudioSource;
-          setEncoded(encoded);
+          setSource(base64AudioSource)
+          audioElm!.src = base64AudioSource
+          setEncoded(encoded)
         })
-        .catch((error: any) => {
-          reject(error);
-          setError('There was a problem creating the WAV file. Please refresh and try again.');
+        .catch((error) => {
+          reject(error)
+          setError(
+            'There was a problem creating the WAV file. Please refresh and try again.'
+          )
         })
         .finally(() => {
-          setRecording(false);
-        });
-    });
-  };
+          setRecording(false)
+        })
+    })
+  }
 
-  const startStream = async (restart?: boolean): Promise<RecordType> => {
+  const startProcess = async (restart?: boolean): Promise<RecordType> => {
     return new Promise(async (resolve, reject) => {
-      reset();
+      reset()
       if (restart) {
-        setRerecording(restart);
+        setRerecording(restart)
       }
       try {
-        let context: AudioContext | null;
-        let processor: ScriptProcessorNode | null;
+        let context: AudioContext | null
 
         if (processorRet) {
-          context = processorRet.context;
-          processor = processorRet.processor;
+          context = processorRet.context
+          processor = processorRet.processor
         }
 
         if (recording) {
-          streamClosed();
-          return;
+          await stopProcess()
+          return
         }
 
-        let buff: AudioBuffer | null;
-        setDataReceived(false);
+        let buff: AudioBuffer | null
+        setDataReceived(false)
 
-        const [error, result] = await startProcessor();
+        const [error, result] = await startProcessor()
         if (result) {
-          context = result.context;
-          processor = result.processor;
+          context = result.context
+          processor = result.processor
         } else {
-          console.error(error);
-          setError('There was a problem with recording. Please refresh and try again');
-          return;
+          console.error(error)
+          setError(
+            'There was a problem with recording. Please refresh and try again'
+          )
+          return
         }
 
-        setRecording(true);
-        setProcessorRet(result as ProcessorReturnValue);
+        setRecording(true)
+        setProcessorRet(result as ProcessorReturnValue)
 
         processor.onaudioprocess = function (e: AudioProcessingEvent) {
-          setDataReceived(true);
-          buff = concatenateAudioBuffers(buff, e.inputBuffer, context!);
-          setBuffer(buff);
-        };
-
-        function streamClosed() {
-          setRecording(false);
-          if (processor) {
-            processor.onaudioprocess = null;
-          }
-          stopProcessor();
-          clearTimeout(recordTimeout.current!);
-          if (buff) {
-            recordingComplete(buff)
-              .then((record) => {
-                resolve(record);
-              })
-              .catch((err) => {
-                reject(err);
-              });
-          }
+          setDataReceived(true)
+          buff = concatenateAudioBuffers(buff, e.inputBuffer, context!)
+          setBuffer(buff)
         }
-
-        recordTimeout.current = setTimeout(streamClosed, recordTime * 1000);
+        recordTimeout.current = setTimeout(stopProcess, recordTime * 1000)
       } catch (e) {
-        setRecording(false);
-        setError('There was a problem with recording. Please refresh and try again');
-        reject(e);
+        setRecording(false)
+        setError(
+          'There was a problem with recording. Please refresh and try again'
+        )
+        reject(e)
       }
-    });
-  };
+    })
+  }
 
-  const stopStream = () => {
-    setRecording(false);
-    stopAudioStream();
-  };
+  const stopProcess = async () => {
+    setRecording(false)
+    if (processor) {
+      processor.onaudioprocess = null
+    }
+    stopProcessor()
+    clearTimeout(recordTimeout.current!)
+    if (buffer) {
+      await recordingComplete(buffer)
+    }
+  }
 
   return {
     audioElm,
@@ -327,11 +339,11 @@ export function useSsAudioClient(): RecorderType {
     play,
     stop,
     pause,
-    startStream,
+    startProcess,
     records,
     reset,
     setRecordTime,
-    stopStream,
+    stopProcess,
     clear,
     encoded,
     toggle,
@@ -342,5 +354,5 @@ export function useSsAudioClient(): RecorderType {
     paused,
     dataReceived,
     buffer
-  };
+  }
 }

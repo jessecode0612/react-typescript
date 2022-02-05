@@ -58,6 +58,7 @@ export function Process({
         timer = null;
       }
     };
+    // eslint-disable-next-line
   }, [playing]);
   const handlePlay = () => {
     if (playing) {

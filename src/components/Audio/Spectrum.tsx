@@ -38,7 +38,8 @@ export function Spectrum({ record = false, height: canvasHeight, variant, audioE
     return () => {
       stop();
     };
-  }, []);
+    // eslint-disable-next-line
+  }, [containerRef]);
 
   useEffect(() => {
     if (visualizerCanvasRef.current && !canvasContext) {
@@ -47,6 +48,7 @@ export function Spectrum({ record = false, height: canvasHeight, variant, audioE
       setCanvasContext(canvasCtx!);
       visualize(canvas);
     }
+    // eslint-disable-next-line
   }, [visualizerCanvasRef]);
 
   useEffect(() => {
@@ -55,6 +57,7 @@ export function Spectrum({ record = false, height: canvasHeight, variant, audioE
     } else {
       stop();
     }
+    // eslint-disable-next-line
   }, [record, source]);
 
   const start = () => {

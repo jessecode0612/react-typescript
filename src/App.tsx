@@ -16,6 +16,7 @@ import RecipesPage from './pages/samples/recipes';
 import ResizablePage from './pages/samples/resizable';
 import ToasterPage from './pages/samples/toaster';
 import CounterPage from './pages/samples/counter';
+import RecordPage from "./pages/samples/record";
 // 404
 import ErrorPage from './pages/404';
 
@@ -35,6 +36,7 @@ export default function App() {
         <Route path={'/samples/resizable'} element={<ResizablePage />} />
         <Route path={'/samples/toaster'} element={<ToasterPage />} />
         <Route path={'/samples/counter'} element={<CounterPage />} />
+        <Route path={'/samples/record'} element={<RecordPage />} />
 
         <Route path={'/docs'} element={<DocsPage />} />
         <Route path={'/docs/:url'} element={<DocsPage />} />

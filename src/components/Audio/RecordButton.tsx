@@ -38,14 +38,18 @@ const styles = css`
   justify-content: center;
   align-items: center;
   border-radius: 100%;
-  border: ${theme};
+  border: ${theme.styles.border};
   cursor: pointer;
 
   div {
     width: 50%;
     height: 50%;
-    background-color: #f74800;
+    background-color: #a92c00;
     border-radius: 100%;
+
+    &:hover {
+      background-color: #ff4002 !important;
+    }
   }
 
   .icon {
@@ -60,16 +64,9 @@ const styles = css`
     }
   }
 
-  &:hover {
-    background-color: #f74800;
-
-    div {
-      background-color: white;
-    }
-  }
-
   &[data-redording='true'] {
     animation: ${recordingAnimation} 0.45s infinite alternate ${theme.styles.transitionEasing};
+
     div {
       border-radius: 2px;
       background-color: transparent;

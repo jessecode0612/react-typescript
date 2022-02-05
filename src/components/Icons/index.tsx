@@ -7,7 +7,7 @@ interface Props {
   extraCss?: SerializedStyles | SerializedStyles[];
 }
 export * from './LoadingIcon';
-
+export * from './PlayOutlineIcon';
 export function AddCircleOutlineIcon({ extraCss }: Props) {
   return (
     <SVGIcon

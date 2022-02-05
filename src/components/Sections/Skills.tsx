@@ -27,7 +27,7 @@ const skills = [
   'MySQL, PostgreSQL, MongoDB',
   'Firebase Realtime/Firestore',
   'Server Security, Performance Management, LoadBalancing System',
-  'GraphQL/Apollo'
+  'GraphQL/Apollo/Hasura'
 ];
 
 export default function Skills() {

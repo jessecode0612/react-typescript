@@ -17,13 +17,12 @@ export default function Projects() {
         {projects.map((project, index) => (
           <div key={index.toString()} className="project-item">
             <RatioView ratio={1/2}>
-              <img src={project.image} alt={project.name} />
+              <img src={project.image} alt={project.title} />
             </RatioView>
             <div className="title">
               <h5>{project.title}</h5>
             </div>
             <div className="links">
-              <h6 style={{paddingRight: 10}}>{project.subtitle}</h6>
               {
                 project.website &&
                 <a href={project.website} target="_blank" rel="noopener noreferrer">
